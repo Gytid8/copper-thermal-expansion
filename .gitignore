@@ -20,3 +20,5 @@ docs/pilot_notebook.ipynb
 *.exe
 *.dll
 *.msi
+
+outputs/interrupted/

@@ -72,6 +72,9 @@ def run_one(job):
         previous=json.loads(meta_file.read_text(encoding='utf8'))
         if previous.get('status')=='completed':return
         raise RuntimeError(f'Existing incomplete job protected: {dest}')
+    if (dest/'recovery.json').exists():
+        from resume_study import resume_one
+        return resume_one(job)
     dest.mkdir(parents=True,exist_ok=True)
     text=source(job);(dest/'input.in').write_text(text,encoding='ascii')
     meta={**job,'status':'running','potential_sha256':hashlib.sha256(Path(CONFIG['potential']).read_bytes()).hexdigest(),
