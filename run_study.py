@@ -5,6 +5,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parent
 os.chdir(ROOT)
 os.environ.setdefault('OMP_NUM_THREADS','1')
+os.environ.setdefault('OMP_WAIT_POLICY','PASSIVE')
 from md_project import new_lammps,initialization,potential,save_json,CONFIG
 
 def manifest():
@@ -92,6 +93,7 @@ def run_one(job):
 
 def batch(workers):
     jobs=manifest();Path('outputs').mkdir(exist_ok=True)
+    Path('.tmp').mkdir(exist_ok=True)
     save_json('outputs/study_manifest.json',jobs)
     # Long checks start early; each task is an isolated Python/LAMMPS process.
     jobs.sort(key=lambda j:(0 if '_long_' in j['id'] else 1,j['group'],j['id']))

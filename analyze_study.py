@@ -19,6 +19,9 @@ def read_job(job):
     interval=round(.1/job['dt'])
     assert np.array_equal(frame.step,np.arange(0,steps+1,interval))
     assert np.isfinite(frame.to_numpy()).all()
+    assert np.allclose(frame.lx_A,frame.ly_A,rtol=1e-9)
+    assert np.allclose(frame.lx_A,frame.lz_A,rtol=1e-9)
+    assert np.allclose(frame.volume_A3,frame.lx_A*frame.ly_A*frame.lz_A,rtol=1e-9)
     assert meta['final_atoms']==4*job['cells']**3
     log=(dest/'log.lammps').read_text(errors='replace')
     assert 'ERROR' not in log
@@ -40,8 +43,12 @@ def read_job(job):
         blocks.append({'job':job['id'],'block_ps':length,'blocks':count,'a_sem_A':sem})
         if length==20:
             row['a_block_sem_A']=sem
-            k=count//2
-            row['halves_delta_sem_A']=np.sqrt(means[:k].var(ddof=1)/k+means[k:].var(ddof=1)/(count-k))
+            # Match the two physical half-windows; discard each half's short tail.
+            left=values[:half];right=values[half:]
+            kl=len(left)//n;kr=len(right)//n
+            ml=left[:kl*n].reshape(kl,n).mean(axis=1)
+            mr=right[:kr*n].reshape(kr,n).mean(axis=1)
+            row['halves_delta_sem_A']=np.sqrt(ml.var(ddof=1)/kl+mr.var(ddof=1)/kr)
             for key in ['temperature_K','pressure_bar']:
                 m=sample[key].to_numpy()[:n*count].reshape(count,n).mean(axis=1)
                 row[key+'_sem']=m.std(ddof=1)/np.sqrt(count)
