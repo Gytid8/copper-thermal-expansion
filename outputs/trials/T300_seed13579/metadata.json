@@ -1,0 +1,31 @@
+{
+  "status": "completed",
+  "temperature_K": 300,
+  "seed": 13579,
+  "threads": 4,
+  "equilibration_ps": 100,
+  "sampling_ps": 200,
+  "config": {
+    "cells": 10,
+    "initial_lattice_A": 3.615,
+    "mass_amu": 63.546,
+    "potential": "potentials/Cu01.eam.alloy",
+    "timestep_ps": 0.001,
+    "temperature_damping_ps": 0.1,
+    "pressure_damping_ps": 1.0,
+    "pressure_bar": 0.0,
+    "trial_temperatures_K": [
+      300,
+      800
+    ],
+    "trial_seed": 13579,
+    "trial_equilibration_ps": 100,
+    "trial_sampling_ps": 200,
+    "sample_interval_ps": 0.1,
+    "dump_interval_ps": 10
+  },
+  "started_local": "2026-10-17 11:53:30",
+  "final_atoms": 4000,
+  "elapsed_seconds": 618.0009052000005,
+  "steps_per_second": 485.44
+}

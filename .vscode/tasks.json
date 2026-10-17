@@ -1,0 +1,29 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "铜项目：检查环境",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "args": ["md_project.py", "environment"],
+      "options": {"cwd": "${workspaceFolder}", "env": {"PYTHONIOENCODING": "utf-8"}},
+      "problemMatcher": []
+    },
+    {
+      "label": "铜项目：建立并检查模型",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "args": ["md_project.py", "build"],
+      "options": {"cwd": "${workspaceFolder}", "env": {"PYTHONIOENCODING": "utf-8"}},
+      "problemMatcher": []
+    },
+    {
+      "label": "铜项目：分析已完成的试跑",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "args": ["md_project.py", "analyze"],
+      "options": {"cwd": "${workspaceFolder}", "env": {"PYTHONIOENCODING": "utf-8"}},
+      "problemMatcher": []
+    }
+  ]
+}

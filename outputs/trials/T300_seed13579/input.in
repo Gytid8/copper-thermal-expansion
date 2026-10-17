@@ -1,0 +1,33 @@
+units metal
+dimension 3
+boundary p p p
+atom_style atomic
+read_data outputs/model/relaxed.data
+mass 1 63.546
+pair_style eam/alloy
+pair_coeff * * potentials/Cu01.eam.alloy Cu
+neighbor 2.0 bin
+neigh_modify delay 0 every 1 check yes
+timestep 0.001
+reset_timestep 0
+velocity all create 300 13579 mom yes rot no dist gaussian
+fix integrator all npt temp 300 300 0.1 iso 0 0 1.0
+variable time_ps equal time
+variable temperature_K equal temp
+variable pressure_bar equal press
+variable energy_eV equal pe
+variable length_x equal lx
+variable length_y equal ly
+variable length_z equal lz
+variable volume_A3 equal vol
+thermo 1000
+thermo_style custom step time atoms temp press pe etotal lx ly lz vol
+thermo_modify format float %.12g flush yes
+fix scalar all ave/time 100 1 100 v_time_ps v_temperature_K v_pressure_bar v_energy_eV v_length_x v_length_y v_length_z v_volume_A3 file outputs/trials/T300_seed13579/thermo.dat
+dump trajectory all custom 10000 outputs/trials/T300_seed13579/trajectory.lammpstrj id type x y z
+dump_modify trajectory sort id
+run 100000
+write_restart outputs/trials/T300_seed13579/equilibrated.restart
+run 200000
+write_data outputs/trials/T300_seed13579/final.data
+write_restart outputs/trials/T300_seed13579/final.restart

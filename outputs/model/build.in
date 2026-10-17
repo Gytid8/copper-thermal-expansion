@@ -1,0 +1,28 @@
+units metal
+dimension 3
+boundary p p p
+atom_style atomic
+lattice fcc 3.615
+region box block 0 10 0 10 0 10 units lattice
+create_box 1 box
+create_atoms 1 box
+mass 1 63.546
+pair_style eam/alloy
+pair_coeff * * potentials/Cu01.eam.alloy Cu
+neighbor 2.0 bin
+neigh_modify delay 0 every 1 check yes
+thermo 100
+thermo_style custom step atoms pe press lx ly lz vol fmax
+thermo_modify format float %.12g
+write_data outputs/model/initial.data
+fix relax all box/relax iso 0.0 vmax 0.001
+min_style cg
+minimize 1.0e-12 1.0e-10 10000 100000
+unfix relax
+compute structure all cna/atom 3.2
+variable isfcc atom c_structure==1
+compute nfcc all reduce sum v_isfcc
+thermo_style custom step atoms pe press lx ly lz vol fmax c_nfcc
+run 0
+write_data outputs/model/relaxed.data
+write_dump all custom outputs/model/relaxed.lammpstrj id type x y z c_structure modify sort id

@@ -1,0 +1,3 @@
+* text=auto eol=lf
+*.eam.alloy -text
+*.png binary
