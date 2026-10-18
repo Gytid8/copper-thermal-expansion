@@ -1,0 +1,21 @@
+{
+  "id": "prod_T700_r1",
+  "group": "production",
+  "temperature": 700,
+  "seed": 26879,
+  "cells": 10,
+  "dt": 0.001,
+  "equil_ps": 200,
+  "sample_ps": 500,
+  "replicate": 1,
+  "threads": 4,
+  "status": "completed",
+  "potential_sha256": "5e374260448eea5c26de59432d75e702c1778cc6999d2527a789e5387ce9dc9e",
+  "input_sha256": "3dc0d21de5acc5e0c73abbb9ecea36c956861177f8b54dc509516fb69bf092b8",
+  "backend": "LAMMPS 22Jul2025 update4 / eam/alloy/omp double precision",
+  "sample_interval_ps": 0.1,
+  "started_unix": 1792226497.6203632,
+  "final_atoms": 4000,
+  "lammps_version": 20250722,
+  "elapsed_seconds": 2753.633230800002
+}

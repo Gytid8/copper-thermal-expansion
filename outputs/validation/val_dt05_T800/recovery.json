@@ -1,0 +1,26 @@
+{
+  "reason": "Worker process absent; scalar output stopped around 2026-10-17 20:17; no LAMMPS error recorded",
+  "archive": "outputs/interrupted/20261017_210500/val_dt05_T800",
+  "checkpoint_step": 400000,
+  "checkpoint_time_ps": 200,
+  "checkpoint_sha256": "699b2a406dc7d393d47b87d6256646bba47dae86ee72003082cf1b44fcabbedd",
+  "discarded_production_note": "Interrupted production suffix is archived, not mixed into final averages; collect full 500 ps again",
+  "original_metadata": {
+    "id": "val_dt05_T800",
+    "group": "validation",
+    "temperature": 800,
+    "seed": 28779,
+    "cells": 10,
+    "dt": 0.0005,
+    "equil_ps": 200,
+    "sample_ps": 500,
+    "replicate": 1,
+    "threads": 4,
+    "status": "running",
+    "potential_sha256": "5e374260448eea5c26de59432d75e702c1778cc6999d2527a789e5387ce9dc9e",
+    "input_sha256": "4a6117a548bc3cf8e094805f64f6530e209a5c5a07d8652eeac61240586aba7b",
+    "backend": "LAMMPS 22Jul2025 update4 / eam/alloy/omp double precision",
+    "sample_interval_ps": 0.1,
+    "started_unix": 1792233372.9204614
+  }
+}

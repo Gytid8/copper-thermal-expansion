@@ -32,6 +32,8 @@ def duration(seconds):
 
 def snapshot():
     now=time.time();rows=[];rates=[];done=0;total=0;completed=0;weighted_remaining=0
+    try:pauses=json.loads((ROOT/'.tmp/pause_history.json').read_text(encoding='utf8'))
+    except (OSError,json.JSONDecodeError):pauses=[]
     for j in manifest():
         count=round((j['equil_ps']+j['sample_ps'])/j['dt']);total+=count
         path=folder(j);meta={}
@@ -41,7 +43,9 @@ def snapshot():
         if state=='completed':step=count;completed+=1
         step=min(step,count);done+=step
         weighted_remaining+=(count-step)*(j['cells']/10)**3
-        elapsed=now-meta.get('started_unix',now)
+        start=meta.get('started_unix',now)
+        excluded=sum(max(0,min(now,p['resumed_unix'])-max(start,p['paused_unix'])) for p in pauses)
+        elapsed=max(0,now-start-excluded)
         restart_step=meta.get('recovery',{}).get('checkpoint_step',0)
         rate=max(0,step-restart_step)/elapsed if elapsed>5 and step else 0
         if state=='running' and rate:rates.append(rate*(j['cells']/10)**3)
@@ -53,7 +57,7 @@ def snapshot():
            '',f'总步数进度 [{bar}] {percent:5.1f}%',
            f'已完成任务：{completed}/24    当前运行：{sum(r[1]=="运行中" for r in rows)}',
            f'总步数：{done:,} / {total:,}',
-           '预计计算剩余：'+duration(weighted_remaining/sum(rates) if rates else None)+'（粗估，尺寸检查可能更慢）',
+           ('模拟已全部完成；统计与论文状态见下方收尾记录。' if completed==24 else '预计计算剩余：'+duration(weighted_remaining/sum(rates) if rates else None)+'（粗估，尺寸检查可能更慢）'),
            '',f'{"任务":<24} {"状态":<7} {"进度":>7}    模拟时间 / ps       当前任务剩余', '-'*94]
     for name,label,pct,ps,allps,remaining in rows:
         tail=duration(remaining) if label=='运行中' else ''
@@ -64,6 +68,9 @@ def snapshot():
     err=ROOT/'.tmp/finalize_stderr.txt'
     if err.exists() and err.stat().st_size:
         lines+=['','收尾流程有提示，请查看 .tmp/finalize_stderr.txt：',err.read_text(encoding='utf8',errors='replace')[-1200:]]
+    if completed==24:
+        log=ROOT/'.tmp/finalize_stdout.txt'
+        if log.exists():lines+=['','最近收尾记录：']+log.read_text(encoding='utf8',errors='replace').splitlines()[-6:]
     return '\n'.join(lines)
 
 if __name__=='__main__':

@@ -1,0 +1,14 @@
+{
+  "alpha_300_800_Kinv": 1.7888255819899168e-05,
+  "alpha_replicate_sd_Kinv": 6.080636592071885e-09,
+  "alpha_replicate_sem_Kinv": 3.5106571732769918e-09,
+  "alpha_ci95_halfwidth_Kinv": 1.5105138670343267e-08,
+  "nist_alpha_300_800_Kinv": 1.860382335266797e-05,
+  "relative_error_percent": -3.8463466310336814,
+  "production_runs": 18,
+  "validation_runs": 6,
+  "all_practical_checks_pass": true,
+  "max_halves_z": 2.2459287821745404,
+  "confidence_note": "t distribution, df=2, 3 independent repeats; statistical uncertainty only",
+  "reference_note": "NIST archived SRM 736 certificate, revision 1990-10-07, Table page 1; 293 K rebased to 300 K"
+}

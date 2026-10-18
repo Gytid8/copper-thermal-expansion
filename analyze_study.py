@@ -134,7 +134,7 @@ def plot_all(summary,prod,runs,frames,ref,checks,metrics,blocks):
     fig,ax=plt.subplots(figsize=(8,5))
     ax.bar(['MD温区平均','NIST温区平均'],[metrics['alpha_300_800_Kinv']*1e6,metrics['nist_alpha_300_800_Kinv']*1e6],color=[color,blue])
     ax.errorbar(0,metrics['alpha_300_800_Kinv']*1e6,yerr=metrics['alpha_ci95_halfwidth_Kinv']*1e6,fmt='none',ecolor='black',capsize=5)
-    ax.set(ylabel='300–800 K平均线膨胀系数 (10⁻⁶ K⁻¹)',title='工程温区平均；误差棒仅含MD重复统计误差')
+    ax.set(ylabel=r'300–800 K平均线膨胀系数 ($10^{-6}$ K$^{-1}$)',title='工程温区平均；误差棒仅含MD重复统计误差')
     fig.tight_layout();fig.savefig(FIG/'alpha_comparison.png');plt.close(fig)
     for t in [300,800]:
         jobid=f'prod_T{t}_r1';frame=frames[jobid];jobrow=runs[runs.id==jobid].iloc[0]
@@ -150,7 +150,7 @@ def plot_all(summary,prod,runs,frames,ref,checks,metrics,blocks):
     fig,axes=plt.subplots(1,2,figsize=(11,4.6))
     for ax,t in zip(axes,[300,800]):
         sub=blocks[blocks.job==f'prod_T{t}_r1'];ax.plot(sub.block_ps,sub.a_sem_A*1e6,'o-',color=color)
-        ax.set(xlabel='分块长度 (ps)',ylabel='晶格常数均值标准误 (10⁻⁶ Å)',title=f'{t} K分块敏感性');ax.grid(alpha=.2)
+        ax.set(xlabel='分块长度 (ps)',ylabel=r'晶格常数均值标准误 ($10^{-6}$ Å)',title=f'{t} K分块敏感性');ax.grid(alpha=.2)
     fig.tight_layout();fig.savefig(FIG/'block_sensitivity.png');plt.close(fig)
     fig,ax=plt.subplots(figsize=(8,4.8))
     ax.axhline(0,color='gray',lw=.8);ax.axhspan(-2,2,color='#9ec5b1',alpha=.25,label='预设实用阈值±2%')

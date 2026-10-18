@@ -24,6 +24,13 @@ def main():
             status+='\n\n**参数验证尚未全部通过，不能称作已收敛，需要进一步补算。**'
     else:
         status+=' **模拟尚未完成，当前Notebook是方法稿，不能作为最终论文提交。** 现有两温度试跑不替代正式数据。'
+    if mpath.exists() and done==24:
+        import pandas as pd
+        check=pd.read_csv(ROOT/'results/validation_comparison.csv')
+        status+='\n\n|验证项目|平均系数相对基准r1的变化|\n|---|---|\n'
+        labels={'size12':'尺寸：4000→6912原子','dt05':'时间步：1→0.5 fs','long':'时长：延长至1+1 ns'}
+        for _,r in check.iterrows():status+=f"|{labels[r['check']]}|{r.change_percent:+.4f}%|\n"
+        status+='\n![统一300 K参考后的实验对照](results/figures/expansion_comparison.png)\n\n模拟、统计和论文均已形成完整文件。Notebook中的小组成员姓名与实际分工仍需组员填写。'
     readme='''# 单晶铜热膨胀行为及线膨胀系数的分子动力学研究
 
 材料学院计算材料学课程项目。问题很简单：**把理想单晶铜从300 K加热到800 K，它的晶格和体积怎样变化？Mishin EAM1势算出的膨胀系数与实验差多少？**

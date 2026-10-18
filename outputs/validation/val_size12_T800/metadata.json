@@ -1,0 +1,21 @@
+{
+  "id": "val_size12_T800",
+  "group": "validation",
+  "temperature": 800,
+  "seed": 28779,
+  "cells": 12,
+  "dt": 0.001,
+  "equil_ps": 200,
+  "sample_ps": 500,
+  "replicate": 1,
+  "threads": 4,
+  "status": "completed",
+  "potential_sha256": "5e374260448eea5c26de59432d75e702c1778cc6999d2527a789e5387ce9dc9e",
+  "input_sha256": "2f698074bcfeb9f72e3370980f7e3a900808a145d7b68e3e268406c02cdaab72",
+  "backend": "LAMMPS 22Jul2025 update4 / eam/alloy/omp double precision",
+  "sample_interval_ps": 0.1,
+  "started_unix": 1792308077.39032,
+  "final_atoms": 6912,
+  "lammps_version": 20250722,
+  "elapsed_seconds": 3000.322192499996
+}

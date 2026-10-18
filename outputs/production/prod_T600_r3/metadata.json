@@ -1,0 +1,21 @@
+{
+  "id": "prod_T600_r3",
+  "group": "production",
+  "temperature": 600,
+  "seed": 108931,
+  "cells": 10,
+  "dt": 0.001,
+  "equil_ps": 200,
+  "sample_ps": 500,
+  "replicate": 3,
+  "threads": 4,
+  "status": "completed",
+  "potential_sha256": "5e374260448eea5c26de59432d75e702c1778cc6999d2527a789e5387ce9dc9e",
+  "input_sha256": "49236d3a3b9f74742314c5752ca75120e46dcb8dda51b728557ff90e3c337911",
+  "backend": "LAMMPS 22Jul2025 update4 / eam/alloy/omp double precision",
+  "sample_interval_ps": 0.1,
+  "started_unix": 1792224500.6243393,
+  "final_atoms": 4000,
+  "lammps_version": 20250722,
+  "elapsed_seconds": 2676.391624
+}

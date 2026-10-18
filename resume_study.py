@@ -4,9 +4,50 @@ Discard the interrupted production suffix; retain the equilibrium prefix and
 collect a fresh, uninterrupted 500 ps production segment from the checkpoint.
 """
 import hashlib,json,time
+import shutil
 from pathlib import Path
 from md_project import initialization,potential,new_lammps,save_json
 from run_study import folder,source
+
+def validate_and_clean_boundary(job):
+    """Allow only one numerically identical checkpoint-boundary duplicate."""
+    import numpy as np
+    dest=folder(job);path=dest/'thermo.dat'
+    text=path.read_text(encoding='ascii');lines=text.splitlines()
+    rows=[line.split() for line in lines if line.strip() and not line.startswith('#')]
+    data=np.asarray(rows,dtype=float)
+    assert data.ndim==2 and data.shape[1]==9 and np.isfinite(data).all()
+    end=round((job['equil_ps']+job['sample_ps'])/job['dt'])
+    interval=round(.1/job['dt']);expected=np.arange(0,end+1,interval)
+    step=data[:,0];boundary=round(job['equil_ps']/job['dt'])
+    unique,counts=np.unique(step,return_counts=True)
+    assert np.array_equal(unique,expected), 'Missing or unexpected output steps'
+    duplicates=unique[counts>1]
+    if len(duplicates):
+        assert np.array_equal(duplicates,[boundary]) and counts[unique==boundary][0]==2
+        indices=np.flatnonzero(step==boundary)
+        assert indices[1]==indices[0]+1
+        assert np.allclose(data[indices[0]],data[indices[1]],rtol=1e-10,atol=1e-7), 'Boundary values disagree'
+        raw=dest/'thermo_raw_before_boundary_cleanup.dat'
+        if raw.exists():assert raw.read_text(encoding='ascii')==text
+        else:shutil.copy2(path,raw)
+        kept=[];seen=False
+        for line in lines:
+            parts=line.split()
+            if len(parts)==9 and parts[0].isdigit() and int(parts[0])==boundary:
+                if seen:continue
+                seen=True
+            kept.append(line)
+        path.write_text('\n'.join(kept)+'\n',encoding='ascii')
+    clean=np.loadtxt(path,comments='#')
+    assert np.array_equal(clean[:,0],expected)
+    assert np.isfinite(clean).all()
+    assert np.allclose(clean[:,1],clean[:,0]*job['dt'],rtol=1e-10,atol=1e-8)
+    assert np.allclose(clean[:,8],clean[:,5]*clean[:,6]*clean[:,7],rtol=1e-9)
+    assert (clean[:,1]>job['equil_ps']).sum()==round(job['sample_ps']/.1)
+    return {'rows':len(clean),'production_rows':round(job['sample_ps']/.1),
+            'removed_boundary_duplicates':len(duplicates),
+            'clean_sha256':hashlib.sha256(path.read_bytes()).hexdigest()}
 
 def continuation_source(job):
     dest=folder(job).as_posix();dt=job['dt']
@@ -43,11 +84,7 @@ def resume_one(job):
         assert int(lmp.get_thermo('step'))==end
         assert int(lmp.get_natoms())==4*job['cells']**3
         lmp.command('unfix scalars')
-        steps=[]
-        for line in (dest/'thermo.dat').read_text(encoding='ascii').splitlines():
-            parts=line.split()
-            if len(parts)==9 and parts[0].isdigit():steps.append(int(parts[0]))
-        assert steps==list(range(0,end+1,round(.1/job['dt'])))
+        meta['boundary_check']=validate_and_clean_boundary(job)
         meta.update(status='completed',final_atoms=int(lmp.get_natoms()),lammps_version=lmp.version())
     except BaseException as exc:
         meta.update(status='failed',error=str(exc));raise

@@ -9,10 +9,13 @@
   "sample_ps": 1000,
   "replicate": 1,
   "threads": 4,
-  "status": "running",
+  "status": "completed",
   "potential_sha256": "5e374260448eea5c26de59432d75e702c1778cc6999d2527a789e5387ce9dc9e",
   "input_sha256": "463131cf2db130f9492a31ae1c5b48ca1842310b84285dc920ec3ee67e01182b",
   "backend": "LAMMPS 22Jul2025 update4 / eam/alloy/omp double precision",
   "sample_interval_ps": 0.1,
-  "started_unix": 1792213114.600039
+  "started_unix": 1792213114.600039,
+  "final_atoms": 4000,
+  "lammps_version": 20250722,
+  "elapsed_seconds": 3723.6688517000002
 }
