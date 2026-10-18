@@ -112,7 +112,7 @@ for temperature in temperatures:
 - 势函数调用：https://docs.lammps.org/pair_eam.html
 - 势文件来源：https://www.ctcms.nist.gov/potentials/entry/2001--Mishin-Y-Mehl-M-J-Papaconstantopoulos-D-A-et-al--Cu-1/
 
-最终研究定位：在明确的模型与统计条件下评价Mishin EAM1对300–800 K体相单晶铜晶格膨胀和平均线膨胀系数的预测。尚未生成模拟结果或目标温区误差数值。
+最终研究定位：在明确的模型与统计条件下评价Mishin EAM1对300–800 K体相单晶铜晶格膨胀和平均线膨胀系数的预测。前期调研时尚未生成结果；截至2026-10-18，24条轨迹与全部统计核查已完成，平均系数17.8883×10⁻⁶ K⁻¹，对NIST同定义参考偏差−3.8463%。完整结果见Notebook与results目录。
 
 
 ## 本轮补充与实际采用方法（2026-10-17）

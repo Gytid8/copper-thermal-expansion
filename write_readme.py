@@ -59,7 +59,8 @@ copper-thermal-expansion/
 ├── 阶段进展.md                    按任务记录实际进度
 ├── docs/
 │   ├── literature_review.md        全部参考文献、方法横向比较
-│   └── project_plan.md             一周推进方案
+│   ├── project_plan.md             一周推进方案
+│   └── recovery_record.md          中断恢复、边界清理与最终核查
 ├── data/reference/
 │   ├── nist_srm736.csv             人工核对的实验表值
 │   └── SOURCE.md                   来源、单位和换算公式
@@ -82,6 +83,10 @@ copper-thermal-expansion/
 ├── config.json                    建模及试跑参数
 ├── md_project.py                  环境检查、建模和试跑
 ├── run_study.py                   正式及验证模拟
+├── resume_study.py                从平衡重启点恢复完整采样
+├── prepare_recovery.py            本次中断归档与恢复准备记录
+├── repair_completed_recovery.py   完成输出的重复边界严格核查
+├── show_progress.py               只读实时进度窗口
 ├── analyze_study.py               读取完整数据、统计和绘图
 ├── write_paper.py                 根据真实数据生成论文
 ├── execute_notebook.py            执行论文中的展示单元格
