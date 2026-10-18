@@ -48,14 +48,14 @@
 | 17 | Martyna, Tobias & Klein, 1994. Constant pressure molecular dynamics algorithms. https://doi.org/10.1063/1.467468 | 恒压采样理论；具体实现以LAMMPS文档为准 |
 | 18 | Shinoda, Shiga & Mikami, 2004. Rapid estimation of elastic constants by molecular dynamics simulation under constant stress. https://doi.org/10.1103/PhysRevB.69.134103 | LAMMPS温压控制算法相关依据；原文测试对象包含Ni，不是铜热膨胀基准 |
 | 19 | Flyvbjerg & Petersen, 1989. Error estimates on averages of correlated data. https://doi.org/10.1063/1.457480 | 处理轨迹时间相关性，使用分块统计 |
-| 20 | Grossfield et al., 2018. Best Practices for Quantification of Uncertainty and Sampling Quality in Molecular Simulations. https://doi.org/10.33011/livecoms.1.1.5067 ; https://pmc.ncbi.nlm.nih.gov/articles/PMC6286151/ | 平衡、重复、自相关与采样误差方法指南 |
+| 20 | Grossfield et al., 2019. Best Practices for Quantification of Uncertainty and Sampling Quality in Molecular Simulations. https://doi.org/10.33011/livecoms.1.1.5067 ; https://pmc.ncbi.nlm.nih.gov/articles/PMC6286151/ | 平衡、重复、自相关与采样误差方法指南 |
 | 21 | Thompson et al., 2022. LAMMPS - a flexible simulation tool for particle-based materials modeling at the atomic, meso, and continuum scales. https://doi.org/10.1016/j.cpc.2021.108171 | 软件引用 |
 
 ## 从比较得到的方法选择
 
 早期研究建立经验势MD求热学性质的流程，第一性原理与紧束缚工作补充自由能、声子与近似误差分析，后续研究拓展到多势比较和晶粒尺寸。该定向文献集不能用于推断全领域发表量随时间的趋势。
 
-最值得优先阅读的顺序：Olsson 2023的方法、Lysogorskiy 2021图4及其方法、Mishin 2001及NIST说明、Wang与Reeber 1996参考数据、Grossfield 2018统计指南。
+最值得优先阅读的顺序：Olsson 2023的方法、Lysogorskiy 2021图4及其方法、Mishin 2001及NIST说明、Wang与Reeber 1996参考数据、Grossfield 2019统计指南。
 
 主要比较维度是目标物性、材料状态、势的拟合目标、有限温度处理及不确定性。没有统一协议重跑各模型，不能给出所有势的误差排行榜。也没有可靠的引用次数数据，不给出“最高引用论文/作者”排名。本次文献主要围绕热膨胀、铜、多体势、分子动力学和有限温度自由能展开。
 

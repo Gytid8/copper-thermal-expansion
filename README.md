@@ -14,11 +14,11 @@
 |时间步：1→0.5 fs|-0.0087%|
 |时长：延长至1+1 ns|+0.0280%|
 
-![统一300 K参考后的实验对照](results/figures/expansion_comparison.png)
+![统一300 K参考后的实验对照](results/paper_figures/figure2_reference_residual.png)
 
-模拟、统计和论文均已形成完整文件。Notebook中的小组成员姓名与实际分工仍需组员填写。
+Notebook论文已完成学术重写，约4000字，含3张正文图、2张补充图、2张正文表及107行可执行代码。小组成员姓名、单位与实际分工仍需组员填写。
 
-阶段1环境、阶段2建模、阶段3试跑已完成。阶段4正式模拟与阶段5验证按下列清单推进；阶段6统计和阶段7 Notebook论文必须等数据完成并核查后才能定稿。PPT、视频及答辩属于后续阶段，本轮没有编造这些成果。
+阶段1至7的环境、建模、模拟、验证、统计与Notebook写作已完成。论文按“引言—计算方法—结果与讨论—结论”组织，参考文献已逐项核对，详见引用审阅记录。PPT、视频及答辩准备属于后续工作。
 
 ## 队友先看哪里
 
@@ -26,6 +26,7 @@
 2. 阅读[文献对比](docs/literature_review.md)：包括25项参考来源及范围说明，解释为什么用EAM、NPT、独立重复和参数检查。
 3. 阅读[实验数据说明](data/reference/SOURCE.md)：实验原表基准是293 K，必须换算到300 K再比较。
 4. 看[项目推进方案](docs/project_plan.md)了解一周安排；看[阶段进展](阶段进展.md)了解实际进度。
+5. 阅读[纯文字稿](docs/manuscript.md)、[写作参照比较](docs/paper_writing_comparison.md)和[引用与统计审阅](docs/reference_audit.md)，核对正文依据。
 
 Notebook就是把“论文文字、读取数据的代码和图表”放在一个文件里。队友在VS Code打开`.ipynb`文件即可阅读；需要执行单元格时，右上角选择本项目Python环境。运行Notebook只展示结果，不会自动重新启动长模拟。
 
@@ -39,7 +40,11 @@ copper-thermal-expansion/
 ├── docs/
 │   ├── literature_review.md        全部参考文献、方法横向比较
 │   ├── project_plan.md             一周推进方案
-│   └── recovery_record.md          中断恢复、边界清理与最终核查
+│   ├── recovery_record.md          中断恢复、边界清理与最终核查
+│   ├── manuscript.md               学术重写正文与引用
+│   ├── paper_writing_comparison.md  同类论文结构与写法对比
+│   ├── reference_audit.md          本轮引用与统计审阅说明
+│   └── reference_verification.json 实时文献核查记录
 ├── data/reference/
 │   ├── nist_srm736.csv             人工核对的实验表值
 │   └── SOURCE.md                   来源、单位和换算公式
@@ -58,7 +63,8 @@ copper-thermal-expansion/
 │   ├── alpha_replicates.csv        各次重复的平均系数
 │   ├── validation_comparison.csv  参数检查结果
 │   ├── metrics.json               论文使用的主要数值
-│   └── figures/                   正式图表
+│   ├── figures/                   原始分析图表
+│   └── paper_figures/              新版论文的3张正文图与2张补充图
 ├── config.json                    建模及试跑参数
 ├── md_project.py                  环境检查、建模和试跑
 ├── run_study.py                   正式及验证模拟
