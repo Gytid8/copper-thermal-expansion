@@ -30,7 +30,7 @@ def main():
         status+='\n\n|验证项目|平均系数相对基准r1的变化|\n|---|---|\n'
         labels={'size12':'尺寸：4000→6912原子','dt05':'时间步：1→0.5 fs','long':'时长：延长至1+1 ns'}
         for _,r in check.iterrows():status+=f"|{labels[r['check']]}|{r.change_percent:+.4f}%|\n"
-        status+='\n![统一300 K参考后的实验对照](results/paper_figures/figure2_reference_residual.png)\n\nNotebook论文已完成学术重写，约4000字，含3张正文图、2张补充图、2张正文表及107行可执行代码。小组成员姓名、单位与实际分工仍需组员填写。'
+        status+='\n![统一300 K参考后的实验对照](results/paper_figures/figure2_reference_residual.png)\n\nNotebook论文已扩写为全英文稿，正文约4000英文词（含摘要与图表说明，不含参考文献和补充材料），含3张正文图、2张补充图、2张正文表及108行可执行代码。[排版阅读版HTML](results/copper_thermal_expansion_paper.html)需下载后用浏览器打开；其中代码默认折叠，可点击展开。小组成员姓名、单位与实际分工仍需组员填写。'
     readme='''# 单晶铜热膨胀行为及线膨胀系数的分子动力学研究
 
 材料学院计算材料学课程项目。问题很简单：**把理想单晶铜从300 K加热到800 K，它的晶格和体积怎样变化？Mishin EAM1势算出的膨胀系数与实验差多少？**
@@ -62,7 +62,10 @@ copper-thermal-expansion/
 │   ├── literature_review.md        全部参考文献、方法横向比较
 │   ├── project_plan.md             一周推进方案
 │   ├── recovery_record.md          中断恢复、边界清理与最终核查
-│   ├── manuscript.md               学术重写正文与引用
+│   ├── manuscript.md               英文论文正文与引用
+│   ├── paper_style.css             标题、正文、图注和表格的统一样式
+│   ├── manuscript_revision_english.md 英文修订及检查记录
+│   ├── reference_verification_20261019.json 本轮引用核查
 │   ├── paper_writing_comparison.md  同类论文结构与写法对比
 │   ├── reference_audit.md          本轮引用与统计审阅说明
 │   └── reference_verification.json 实时文献核查记录
@@ -79,6 +82,7 @@ copper-thermal-expansion/
 │   ├── validation/                6条端点验证的独立文件夹
 │   └── study_manifest.json         24项任务的参数清单
 ├── results/                       全部计算完成后才生成
+│   ├── copper_thermal_expansion_paper.html 英文排版阅读版
 │   ├── run_summary.csv            单条轨迹统计
 │   ├── temperature_summary.csv    按温度汇总
 │   ├── alpha_replicates.csv        各次重复的平均系数
@@ -94,6 +98,7 @@ copper-thermal-expansion/
 ├── repair_completed_recovery.py   完成输出的重复边界严格核查
 ├── show_progress.py               只读实时进度窗口
 ├── analyze_study.py               读取完整数据、统计和绘图
+├── export_paper_html.py           导出带折叠代码的排版阅读版
 ├── write_paper.py                 根据真实数据生成论文
 ├── execute_notebook.py            执行论文中的展示单元格
 ├── write_readme.py                按真实文件更新进度

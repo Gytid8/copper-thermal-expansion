@@ -1,0 +1,436 @@
+{
+  "checked_at_utc": "2026-10-19T02:36:02.702505+00:00",
+  "records": [
+    {
+      "doi": "10.1016/S0166-1280(99)00147-5",
+      "status": "metadata_verified",
+      "title": [
+        "Molecular dynamics simulation of the temperature-dependent behavior of solid copper"
+      ],
+      "authors": [
+        {
+          "given": "H.E",
+          "family": "Alper"
+        },
+        {
+          "given": "P",
+          "family": "Politzer"
+        }
+      ],
+      "journal": [
+        "Journal of Molecular Structure: THEOCHEM"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            1999,
+            9
+          ]
+        ]
+      },
+      "volume": "487",
+      "page": "117-125",
+      "article_number": null,
+      "scope": "Bibliographic metadata only; not a claim of full-text access."
+    },
+    {
+      "doi": "10.1103/PhysRevB.65.064302",
+      "status": "metadata_verified",
+      "title": [
+        "<i>Ab initio</i>calculation of the thermal properties of Cu: Performance of the LDA and GGA"
+      ],
+      "authors": [
+        {
+          "given": "Shobhana",
+          "family": "Narasimhan"
+        },
+        {
+          "given": "Stefano",
+          "family": "de Gironcoli"
+        }
+      ],
+      "journal": [
+        "Physical Review B"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2002,
+            1,
+            3
+          ]
+        ]
+      },
+      "volume": "65",
+      "page": null,
+      "article_number": "064302",
+      "scope": "Bibliographic metadata only; not a claim of full-text access."
+    },
+    {
+      "doi": "10.1038/s41524-021-00559-9",
+      "status": "metadata_verified",
+      "title": [
+        "Performant implementation of the atomic cluster expansion (PACE) and application to copper and silicon"
+      ],
+      "authors": [
+        {
+          "given": "Yury",
+          "family": "Lysogorskiy"
+        },
+        {
+          "given": "Cas van der",
+          "family": "Oord"
+        },
+        {
+          "given": "Anton",
+          "family": "Bochkarev"
+        },
+        {
+          "given": "Sarath",
+          "family": "Menon"
+        },
+        {
+          "given": "Matteo",
+          "family": "Rinaldi"
+        },
+        {
+          "given": "Thomas",
+          "family": "Hammerschmidt"
+        },
+        {
+          "given": "Matous",
+          "family": "Mrovec"
+        },
+        {
+          "given": "Aidan",
+          "family": "Thompson"
+        },
+        {
+          "given": "Gábor",
+          "family": "Csányi"
+        },
+        {
+          "given": "Christoph",
+          "family": "Ortner"
+        },
+        {
+          "given": "Ralf",
+          "family": "Drautz"
+        }
+      ],
+      "journal": [
+        "npj Computational Materials"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2021,
+            6,
+            28
+          ]
+        ]
+      },
+      "volume": "7",
+      "page": null,
+      "article_number": "97",
+      "scope": "Bibliographic metadata only; not a claim of full-text access."
+    },
+    {
+      "doi": "10.3390/ma16145032",
+      "status": "metadata_verified",
+      "title": [
+        "Grain Size-Dependent Thermal Expansion of Nanocrystalline Metals"
+      ],
+      "authors": [
+        {
+          "given": "Pär A. T.",
+          "family": "Olsson"
+        },
+        {
+          "given": "Ibrahim",
+          "family": "Awala"
+        },
+        {
+          "given": "Jacob",
+          "family": "Holmberg-Kasa"
+        },
+        {
+          "given": "Andreas M.",
+          "family": "Krause"
+        },
+        {
+          "given": "Mattias",
+          "family": "Tidefelt"
+        },
+        {
+          "given": "Oscar",
+          "family": "Vigstrand"
+        },
+        {
+          "given": "Denis",
+          "family": "Music"
+        }
+      ],
+      "journal": [
+        "Materials"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2023,
+            7,
+            16
+          ]
+        ]
+      },
+      "volume": "16",
+      "page": "5032",
+      "article_number": null,
+      "scope": "Bibliographic metadata only; not a claim of full-text access."
+    },
+    {
+      "doi": "10.1103/PhysRevB.63.224106",
+      "status": "metadata_verified",
+      "title": [
+        "Structural stability and lattice defects in copper:\n                    <i>Ab initio</i>\n                    , tight-binding, and embedded-atom calculations"
+      ],
+      "authors": [
+        {
+          "given": "Y.",
+          "family": "Mishin"
+        },
+        {
+          "given": "M. J.",
+          "family": "Mehl"
+        },
+        {
+          "given": "D. A.",
+          "family": "Papaconstantopoulos"
+        },
+        {
+          "given": "A. F.",
+          "family": "Voter"
+        },
+        {
+          "given": "J. D.",
+          "family": "Kress"
+        }
+      ],
+      "journal": [
+        "Physical Review B"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2001,
+            5,
+            21
+          ]
+        ]
+      },
+      "volume": "63",
+      "page": null,
+      "article_number": "224106",
+      "scope": "Bibliographic metadata only; not a claim of full-text access."
+    },
+    {
+      "doi": "10.1016/j.cpc.2021.108171",
+      "status": "metadata_verified",
+      "title": [
+        "LAMMPS - a flexible simulation tool for particle-based materials modeling at the atomic, meso, and continuum scales"
+      ],
+      "authors": [
+        {
+          "given": "Aidan P.",
+          "family": "Thompson"
+        },
+        {
+          "given": "H. Metin",
+          "family": "Aktulga"
+        },
+        {
+          "given": "Richard",
+          "family": "Berger"
+        },
+        {
+          "given": "Dan S.",
+          "family": "Bolintineanu"
+        },
+        {
+          "given": "W. Michael",
+          "family": "Brown"
+        },
+        {
+          "given": "Paul S.",
+          "family": "Crozier"
+        },
+        {
+          "given": "Pieter J.",
+          "family": "in 't Veld"
+        },
+        {
+          "given": "Axel",
+          "family": "Kohlmeyer"
+        },
+        {
+          "given": "Stan G.",
+          "family": "Moore"
+        },
+        {
+          "given": "Trung Dac",
+          "family": "Nguyen"
+        },
+        {
+          "given": "Ray",
+          "family": "Shan"
+        },
+        {
+          "given": "Mark J.",
+          "family": "Stevens"
+        },
+        {
+          "given": "Julien",
+          "family": "Tranchida"
+        },
+        {
+          "given": "Christian",
+          "family": "Trott"
+        },
+        {
+          "given": "Steven J.",
+          "family": "Plimpton"
+        }
+      ],
+      "journal": [
+        "Computer Physics Communications"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2022,
+            2
+          ]
+        ]
+      },
+      "volume": "271",
+      "page": "108171",
+      "article_number": "108171",
+      "scope": "Bibliographic metadata only; not a claim of full-text access."
+    },
+    {
+      "doi": "10.1063/1.1658614",
+      "status": "metadata_verified",
+      "title": [
+        "Thermal Expansion of Copper from 20 to 800 K—Standard Reference Material 736"
+      ],
+      "authors": [
+        {
+          "given": "Thomas A.",
+          "family": "Hahn"
+        }
+      ],
+      "journal": [
+        "Journal of Applied Physics"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            1970,
+            12,
+            1
+          ]
+        ]
+      },
+      "volume": "41",
+      "page": "5096-5101",
+      "article_number": null,
+      "scope": "Bibliographic metadata only; not a claim of full-text access."
+    },
+    {
+      "doi": "10.1063/1.457480",
+      "status": "metadata_verified",
+      "title": [
+        "Error estimates on averages of correlated data"
+      ],
+      "authors": [
+        {
+          "given": "H.",
+          "family": "Flyvbjerg"
+        },
+        {
+          "given": "H. G.",
+          "family": "Petersen"
+        }
+      ],
+      "journal": [
+        "The Journal of Chemical Physics"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            1989,
+            7,
+            1
+          ]
+        ]
+      },
+      "volume": "91",
+      "page": "461-466",
+      "article_number": null,
+      "scope": "Bibliographic metadata only; not a claim of full-text access."
+    },
+    {
+      "doi": "10.33011/livecoms.1.1.5067",
+      "status": "metadata_verified",
+      "title": [
+        "Best Practices for Quantification of Uncertainty and Sampling Quality in Molecular Simulations [Article v1.0]"
+      ],
+      "authors": [
+        {
+          "given": "Alan",
+          "family": "Grossfield"
+        },
+        {
+          "given": "Paul N.",
+          "family": "Patrone"
+        },
+        {
+          "given": "Daniel R.",
+          "family": "Roe"
+        },
+        {
+          "given": "Andrew J.",
+          "family": "Schultz"
+        },
+        {
+          "given": "Daniel",
+          "family": "Siderius"
+        },
+        {
+          "given": "Daniel M.",
+          "family": "Zuckerman"
+        }
+      ],
+      "journal": [
+        "Living Journal of Computational Molecular Science"
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2019
+          ]
+        ]
+      },
+      "volume": "1",
+      "page": null,
+      "article_number": null,
+      "scope": "Bibliographic metadata only; not a claim of full-text access."
+    }
+  ],
+  "official_sources_checked_with_web_tool": [
+    "https://www.ctcms.nist.gov/potentials/entry/2001--Mishin-Y-Mehl-M-J-Papaconstantopoulos-D-A-et-al--Cu-1/",
+    "https://docs.lammps.org/fix_nh.html",
+    "https://tsapps.nist.gov/srmext/certificates/archives/736.pdf"
+  ],
+  "note": "Publisher/author full-text and earlier verification records supplement metadata checks. No new scientific references were added in the English revision."
+}
