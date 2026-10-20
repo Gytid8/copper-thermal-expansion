@@ -1,0 +1,8 @@
+{
+  "compiler": "XeLaTeX",
+  "layout": "A4; two columns; 18 mm margins; Times New Roman; full-width figure floats",
+  "figures": 6,
+  "tables": 2,
+  "references": 12,
+  "warnings": []
+}

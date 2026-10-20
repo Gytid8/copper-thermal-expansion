@@ -1,0 +1,48 @@
+{
+  "figure_count": 6,
+  "article_tables": 2,
+  "reference_count": 12,
+  "executed_appendix_cells": 4,
+  "notebook_cells": 37,
+  "notebook_bytes": 2896173,
+  "pdf_pages": 10,
+  "caption_pages": {
+    "1": 3,
+    "2": 5,
+    "3": 6,
+    "4": 7,
+    "5": 8,
+    "6": 9
+  },
+  "table_pages": {
+    "1": 3,
+    "2": 5
+  },
+  "typesetting_warnings": [],
+  "embedded_figures_verified": true,
+  "native_figure_hashes_unchanged": true,
+  "html_figures_and_captions_paired": true,
+  "note": "PDF omits executable cells; Notebook and HTML retain them in Appendix A.",
+  "visual_review": {
+    "pages_reviewed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "method": "Rendered contact sheet plus full-page inspection, including final caption-math revision",
+    "findings": [
+      "Six figures and captions kept together",
+      "No observed clipping or overlapping labels",
+      "Math notation and reference order checked",
+      "Three-line tables and bibliography readable"
+    ],
+    "html_review_scope": "Structural checks only; local file browser access unavailable"
+  }
+}

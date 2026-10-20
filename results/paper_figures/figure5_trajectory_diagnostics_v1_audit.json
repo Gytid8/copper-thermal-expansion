@@ -1,0 +1,169 @@
+{
+  "protected_inputs_sha256": {
+    "results/run_summary.csv": "3af2e2de64396f297899573f32858b3438563eae1f0e1881afc69adeea5061f2",
+    "\u94dc\u70ed\u81a8\u80c0\u7814\u7a76.ipynb": "aeb15909cf9e8efa0a380db9aa60dac26d7220ef737fa8f76aed5636deef7ecb"
+  },
+  "sources": [
+    {
+      "id": "prod_T300_r1",
+      "temperature_K": 300,
+      "atoms": 4000,
+      "recorded_time_range_ps": [
+        0,
+        700
+      ],
+      "recorded_points": 7001,
+      "production_points": 5000,
+      "initial_record": "Recorded step 0 retained; no samples were synthesized",
+      "sha256": {
+        "outputs\\production\\prod_T300_r1\\thermo.dat": "33b2c9c8d125fe1c824903607664be9c15121dba0047a4656cb437a4b27806a6",
+        "outputs\\production\\prod_T300_r1\\metadata.json": "1561fe4a4fee963d9577d0c506ec0bbdc2e7ca54ac7c302ec800a7d124e76fe1",
+        "outputs\\production\\prod_T300_r1\\input.in": "6f55910fbc6ca941f4a7742f9b84269a62907b79b89db7d3338d08b1420bfe4a"
+      }
+    },
+    {
+      "id": "prod_T400_r1",
+      "temperature_K": 400,
+      "atoms": 4000,
+      "recorded_time_range_ps": [
+        0,
+        700
+      ],
+      "recorded_points": 7001,
+      "production_points": 5000,
+      "initial_record": "Recorded step 0 retained; no samples were synthesized",
+      "sha256": {
+        "outputs\\production\\prod_T400_r1\\thermo.dat": "aaddab3aae43ba61e65e2e0c0654ce205e85b54f45f02dfe471c37f6f29a9242",
+        "outputs\\production\\prod_T400_r1\\metadata.json": "a694627c363acbe6c5d47b768bf13fe4b74d06bd282c605ed995330e1d8fdfbf",
+        "outputs\\production\\prod_T400_r1\\input.in": "0abae20effd01a612d1536d0fe097e9a88d5f3ad49bb018f23eb99378c07375c"
+      }
+    },
+    {
+      "id": "prod_T500_r1",
+      "temperature_K": 500,
+      "atoms": 4000,
+      "recorded_time_range_ps": [
+        0,
+        700
+      ],
+      "recorded_points": 7001,
+      "production_points": 5000,
+      "initial_record": "Recorded step 0 retained; no samples were synthesized",
+      "sha256": {
+        "outputs\\production\\prod_T500_r1\\thermo.dat": "38d4983d44f9b86a10d42c7b3054e8d30266a03052b51740b88542e8b5b7ceac",
+        "outputs\\production\\prod_T500_r1\\metadata.json": "c815498b78b64e6bd8b21104351976905c572b021dd049e01b8ce8f39529194b",
+        "outputs\\production\\prod_T500_r1\\input.in": "6fa45fe40149fe3b22dc13d0061cf6127516c9042faa55652919ce818ce1940a"
+      }
+    },
+    {
+      "id": "prod_T600_r1",
+      "temperature_K": 600,
+      "atoms": 4000,
+      "recorded_time_range_ps": [
+        0,
+        700
+      ],
+      "recorded_points": 7001,
+      "production_points": 5000,
+      "initial_record": "Recorded step 0 retained; no samples were synthesized",
+      "sha256": {
+        "outputs\\production\\prod_T600_r1\\thermo.dat": "f197ac3dc1047c7d5bb476d1885474944e861f3283eacfb088825545cf1ebae0",
+        "outputs\\production\\prod_T600_r1\\metadata.json": "b4e7a6ac33e60f483f5880584efd37924f144060b77ca168545efbb92ee8dd86",
+        "outputs\\production\\prod_T600_r1\\input.in": "d07cac973d6b48a048843f024e9472ce0cfe1a44c8ade0179912d39951963ec2"
+      }
+    },
+    {
+      "id": "prod_T700_r1",
+      "temperature_K": 700,
+      "atoms": 4000,
+      "recorded_time_range_ps": [
+        0,
+        700
+      ],
+      "recorded_points": 7001,
+      "production_points": 5000,
+      "initial_record": "Recorded step 0 retained; no samples were synthesized",
+      "sha256": {
+        "outputs\\production\\prod_T700_r1\\thermo.dat": "44629c0f89c17bdb00d9e297cc2150d7f9390af32b5c6e28f2b7f7281359ee77",
+        "outputs\\production\\prod_T700_r1\\metadata.json": "eb560368a11af822f9e0b414bf93b2beef9f7873f9124d3a0b691d6e905deae2",
+        "outputs\\production\\prod_T700_r1\\input.in": "d4e136a51f284e811c20119083820f04c28be711fb9cdca863224853f4815ae1"
+      }
+    },
+    {
+      "id": "prod_T800_r1",
+      "temperature_K": 800,
+      "atoms": 4000,
+      "recorded_time_range_ps": [
+        0,
+        700
+      ],
+      "recorded_points": 7001,
+      "production_points": 5000,
+      "initial_record": "Recorded step 0 retained; no samples were synthesized",
+      "sha256": {
+        "outputs\\production\\prod_T800_r1\\thermo.dat": "5d70ca5825fa977ebe92a80c1b8daa13a48f2bebe8328ad1fcc243377ec355b9",
+        "outputs\\production\\prod_T800_r1\\metadata.json": "5cdccfaa07179e567c0aa5fe66826d9a667d9f3c940f5558f2cb63b7dc308d10",
+        "outputs\\production\\prod_T800_r1\\input.in": "b83fcc8ef3c704d2998ca4af8320b7b62800f1106472edb8a52c93306e902c99"
+      }
+    }
+  ],
+  "reference_volume_A3": 47908.58920039708,
+  "volume_transform": "100*(V_T,r1(t)/mean(V_300,r1, 200<t<=700)-1)",
+  "temperature_transform": "recorded temperature minus target temperature",
+  "pressure_transform": "recorded bar * 1e-4 -> GPa",
+  "energy_transform": "recorded total potential energy / 4000 minus own production mean",
+  "display_rolling_mean": {
+    "window_records": 50,
+    "nominal_window_ps": 5,
+    "alignment": "trailing",
+    "min_periods": 1,
+    "segments": "time<=200 and time>200 separately"
+  },
+  "decimation": "None; all 7001 recorded points per trajectory displayed",
+  "3D_view": {
+    "projection": "orthographic",
+    "elevation_deg": 22,
+    "azimuth_deg": -65,
+    "box_aspect": [
+      3.8,
+      2.0,
+      1.55
+    ],
+    "zoom": 1.08,
+    "z_limits_percent": [
+      -1.7619926735185238,
+      3.600904197338843
+    ]
+  },
+  "font": "Times New Roman",
+  "font_file": "C:\\Windows\\Fonts\\times.ttf",
+  "size_mm": [
+    185,
+    155
+  ],
+  "png_dpi": 600,
+  "preview_dpi": 150,
+  "uncertainty": "No confidence intervals inferred from displayed traces",
+  "notes": [],
+  "checks": [
+    "Six completed r1 trajectories with 4000 atoms",
+    "Exact recorded steps and time range checked",
+    "Production means agree with run summary",
+    "All source and Notebook hashes unchanged",
+    "Figure text, 2D labels and 3D axis labels inside export canvas",
+    "3D tick-label placement requires exported visual review",
+    "Full recorded ranges retained in axes"
+  ],
+  "visual_review": {
+    "preview": "150 dpi at 185 \u00d7 155 mm",
+    "findings": [
+      "All six separate temperature trajectories distinguishable in selected orthographic view",
+      "3D time, target-temperature and volume axes readable",
+      "200 ps boundary and reference-plane meaning specified",
+      "All endpoint initial excursions retained; full raw ranges shown",
+      "Lower panels and common endpoint legend readable without observed overlaps or clipping"
+    ],
+    "alternative_2D_required": false,
+    "interpretive_limit": "Full-range initial transients compress small production fluctuations in panels b and d; no clipping or axis breaks were used."
+  }
+}

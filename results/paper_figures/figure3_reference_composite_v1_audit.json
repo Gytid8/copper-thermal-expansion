@@ -1,0 +1,142 @@
+{
+  "protected_inputs_sha256": {
+    "results\\run_summary.csv": "3af2e2de64396f297899573f32858b3438563eae1f0e1881afc69adeea5061f2",
+    "data\\reference\\nist_srm736.csv": "3ec99cf0b0b20597b0683eddd1c27ea833b6c88932736ecd5e544abb63dd8f62",
+    "\u94dc\u70ed\u81a8\u80c0\u7814\u7a76.ipynb": "aeb15909cf9e8efa0a380db9aa60dac26d7220ef737fa8f76aed5636deef7ecb"
+  },
+  "raw_production_files": [
+    {
+      "path": "outputs\\production\\prod_T300_r1\\thermo.dat",
+      "sha256": "33b2c9c8d125fe1c824903607664be9c15121dba0047a4656cb437a4b27806a6"
+    },
+    {
+      "path": "outputs\\production\\prod_T400_r1\\thermo.dat",
+      "sha256": "aaddab3aae43ba61e65e2e0c0654ce205e85b54f45f02dfe471c37f6f29a9242"
+    },
+    {
+      "path": "outputs\\production\\prod_T500_r1\\thermo.dat",
+      "sha256": "38d4983d44f9b86a10d42c7b3054e8d30266a03052b51740b88542e8b5b7ceac"
+    },
+    {
+      "path": "outputs\\production\\prod_T600_r1\\thermo.dat",
+      "sha256": "f197ac3dc1047c7d5bb476d1885474944e861f3283eacfb088825545cf1ebae0"
+    },
+    {
+      "path": "outputs\\production\\prod_T700_r1\\thermo.dat",
+      "sha256": "44629c0f89c17bdb00d9e297cc2150d7f9390af32b5c6e28f2b7f7281359ee77"
+    },
+    {
+      "path": "outputs\\production\\prod_T800_r1\\thermo.dat",
+      "sha256": "5d70ca5825fa977ebe92a80c1b8daa13a48f2bebe8328ad1fcc243377ec355b9"
+    },
+    {
+      "path": "outputs\\production\\prod_T300_r2\\thermo.dat",
+      "sha256": "fdd1da58e8f0fd23a6c8af69439a818f98171cc13bfa53cebe84b6c527852805"
+    },
+    {
+      "path": "outputs\\production\\prod_T400_r2\\thermo.dat",
+      "sha256": "cfbc81c2c19b313c973df4e157c678b3c8408c694c2974aa046f0fc1f1762d51"
+    },
+    {
+      "path": "outputs\\production\\prod_T500_r2\\thermo.dat",
+      "sha256": "549b8ac90304872d77213212245d563fca4b5b355fdb27f2b5f6c72403c2644c"
+    },
+    {
+      "path": "outputs\\production\\prod_T600_r2\\thermo.dat",
+      "sha256": "d1074e93dddd494941621210f1807c2d579a3e3744f07b349e532ce2056d9f9b"
+    },
+    {
+      "path": "outputs\\production\\prod_T700_r2\\thermo.dat",
+      "sha256": "33756acdf0ef93de48480eda8a3d349778a1f2d4769c628448fe3ebc6f77fdab"
+    },
+    {
+      "path": "outputs\\production\\prod_T800_r2\\thermo.dat",
+      "sha256": "2d8f1c80201d8651db725e2af0852312d0a14d4c040b4824425e4c27c6f335bf"
+    },
+    {
+      "path": "outputs\\production\\prod_T300_r3\\thermo.dat",
+      "sha256": "d30fa83264faa88bf33310d2a52145a55222b778dbcc2d409c1c2bf796e42064"
+    },
+    {
+      "path": "outputs\\production\\prod_T400_r3\\thermo.dat",
+      "sha256": "985e56202c4b5dabfafb71b479cff04e6290f89ecf55bb70b9e14191986dcb5f"
+    },
+    {
+      "path": "outputs\\production\\prod_T500_r3\\thermo.dat",
+      "sha256": "6b69e7a884dea104ace76e38b35ef02e8ac9f23161e19ae05b30bbde71a03ad2"
+    },
+    {
+      "path": "outputs\\production\\prod_T600_r3\\thermo.dat",
+      "sha256": "e03af0ed4d6ef54f76c379a97399da012121da8584682d47afc8fdfa605c6707"
+    },
+    {
+      "path": "outputs\\production\\prod_T700_r3\\thermo.dat",
+      "sha256": "3a2928baa7f61e95d4f25d2ae4dcccf387e01bfdfd5ef48b9d8849cff68c7301"
+    },
+    {
+      "path": "outputs\\production\\prod_T800_r3\\thermo.dat",
+      "sha256": "1dc0efb0ae27a7e890322028beec4a1cf66551cdf4eda13a1fcb4aa28219820c"
+    }
+  ],
+  "reference": {
+    "url": "https://tsapps.nist.gov/srmext/certificates/archives/736.pdf",
+    "revision": "1990-10-07",
+    "page": 1,
+    "archived_pdf_sha256": "4a76360a7bde1f58a53d38c6e2af7bfe8bda80a53c624e4913020666d7961bd3",
+    "table_ppm": [
+      117,
+      1831,
+      3620,
+      5480,
+      7411,
+      9420
+    ],
+    "verification": "Certificate p.1 visually checked against CSV; official URL accessed during generation.",
+    "live_download_sha256": "4a76360a7bde1f58a53d38c6e2af7bfe8bda80a53c624e4913020666d7961bd3",
+    "live_download_matches_local_archive": true
+  },
+  "normalization_md": "a_mean_r(T)/a_mean_r(300)-1",
+  "normalization_reference": "(1+ppm(T)*1e-6)/(1+ppm(300)*1e-6)-1",
+  "residual": "1e6*(strain_r(T)-reference_strain(T))",
+  "coefficient": "strain_r(800)/500; arithmetic mean of three independent estimates",
+  "uncertainty": "Two-sided 95% Student-t, df=2; t=4.3026527299; MD sampling only",
+  "reference_uncertainty": "Not propagated; omitted intervals do not imply zero reference uncertainty",
+  "font": "Times New Roman",
+  "font_file": "C:\\Windows\\Fonts\\times.ttf",
+  "size_mm": [
+    185,
+    132
+  ],
+  "png_dpi": 600,
+  "preview_dpi": 150,
+  "category_offsets": [
+    -0.14,
+    0,
+    0.14
+  ],
+  "results": {
+    "md_coefficient_micro_Kinv": 17.8882558242921,
+    "ci95_halfwidth_micro_Kinv": 0.015105138670343353,
+    "nist_coefficient_micro_Kinv": 18.60382335266797,
+    "relative_deviation_percent": -3.8463466074206254,
+    "residual_800_ppm": -357.78376418793556
+  },
+  "endpoint_checks": "All calculated quantities agree with expected rounded checks",
+  "notes": [],
+  "verification": [
+    "18 production means checked against raw samples",
+    "18 raw files unchanged",
+    "Summary, reference CSV and Notebook unchanged",
+    "Text extents inside canvas",
+    "Intervals inside axes limits"
+  ],
+  "visual_review": {
+    "preview": "150 dpi, approximately 1093 \u00d7 779 pixels",
+    "findings": [
+      "Panel labels, axes, legend and coefficient annotations readable",
+      "No observed clipping or text overlaps",
+      "Real uncertainty bars retained at their calculated size",
+      "PDF and 600 dpi PNG exported"
+    ]
+  }
+}

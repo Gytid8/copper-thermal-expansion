@@ -1,0 +1,62 @@
+Create a publication-quality scientific workflow diagram for a computational materials science paper titled “Thermal Expansion of Single-Crystal Copper from 300 to 800 K”.
+
+The input image is a STYLE AND COMPOSITION REFERENCE ONLY. Do not edit or retain its battery-related scientific content. Borrow its large rectangular stage containers, dashed inner boxes, restrained pastel backgrounds, clear black typography, and directional arrows. Replace all contents with the copper molecular-dynamics study below.
+
+OVERALL LAYOUT
+Landscape 3:2 canvas, high-resolution clean vector-like scientific illustration, white background, generous whitespace. Three connected panels: (a) upper left, approximately 60% of upper row; (b) upper right, approximately 40%; (c) wide panel spanning bottom row. Horizontal arrow from (a) to (b), downward arrow from (b) to (c). Arrows must not overlap labels or illustrations.
+Pale cream outer containers, very light blue-gray or pale sage inner modules, muted copper-orange atoms, dark charcoal thin solid outer borders and thin dashed inner borders. Consistent Times New Roman serif typography. Bold panel titles larger than internal labels. All text English, exact and legible. No heavy shadows, glossy effects, texture, or decorative gradient.
+
+PANEL (a)
+Exact title: “(a) FCC copper unit cell”
+Inside dashed box, draw a geometrically correct conventional FCC unit cell in axonometric view: atoms at all eight cube corners and all six face centers, NO body-center atom. Draw thin neutral gray cube edges, using subtle transparency for obscured atoms. Distinguish face centers from corner sites. Crystallographic direction arrows “[100]”, “[010]”, “[001]” aligned with the three cube-edge directions from one origin.
+Compact annotation beneath illustration, exact:
+“Conventional FCC cell”
+“4 atoms per unit cell”
+“Initial lattice parameter: 3.615 Å”
+The four-atom count is the effective count: 8 corners × 1/8 + 6 faces × 1/2 = 4. Do not show a BCC structure.
+
+PANEL (b)
+Exact title: “(b) Periodic single-crystal model”
+Draw a larger cubic simulation box with an ordered representative FCC lattice, consistent orientation with panel (a). Simplify the lattice instead of displaying all 4,000 atoms. Indicate translational periodic continuation with faint neighboring box outlines or subtle paired opposite-face arrows. Do not portray an isolated nanoparticle or free external surface.
+Exact labels:
+“10 × 10 × 10 conventional cells”
+“4,000 Cu atoms”
+“Periodic boundaries: x, y, z”
+“Schematic representation”
+
+PANEL (c)
+Exact title: “(c) Simulation and analysis protocol”
+Four aligned modules, left to right, joined by arrows, dashed inner borders. Provide enough space for all required text without overlaps. Wrap long labels into readable short lines.
+
+Module 1 title: “Model preparation”
+Exact contents:
+“Mishin EAM1 potential”
+“Cu01.eam.alloy”
+“Atomic and cell relaxation”
+
+Module 2 title: “Independent NPT simulations”
+Exact contents:
+“300, 400, 500, 600, 700, 800 K”
+“Three independent initializations per temperature”
+“Target pressure: 0 bar”
+“Isotropic cell control”
+“Timestep: 1 fs”
+Show six compact temperature labels as distinct separate conditions, NOT a continuous heating ramp. This represents eighteen production trajectories, not successive segments of one trajectory.
+
+Module 3 title: “Equilibration and sampling”
+A clean horizontal timeline, pale gray first segment and muted teal second segment, lengths proportional to 200:500 where practical:
+“Equilibration: 200 ps”
+“Production sampling: 500 ps”
+Clearly mark their boundary.
+Additional exact line:
+“Only production data are averaged”
+
+Module 4 title: “Thermal expansion analysis”
+Exact contents:
+“Mean lattice parameter”
+“Mean cell volume”
+“300–800 K average expansion coefficient”
+“Comparison with NIST SRM 736”
+
+RENDERING REQUIREMENTS
+Precise scientific schematic with balanced alignment, consistent line weights and comfortably readable text at journal-page width. No invented result curves, data points, uncertainty bands, microscopy images or numerical simulation results. No journal logo, watermark, external caption, decorative title banner or unrelated symbols. Prioritize FCC geometry, exact English text, clear periodic boundaries and independent temperature conditions. Follow the user's given content rather than adding new methods.

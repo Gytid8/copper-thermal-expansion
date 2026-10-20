@@ -1,0 +1,103 @@
+{
+  "input_summary": "results\\run_summary.csv",
+  "summary_sha256": "3af2e2de64396f297899573f32858b3438563eae1f0e1881afc69adeea5061f2",
+  "raw_production_files": [
+    {
+      "file": "outputs\\production\\prod_T300_r1\\thermo.dat",
+      "sha256": "33b2c9c8d125fe1c824903607664be9c15121dba0047a4656cb437a4b27806a6"
+    },
+    {
+      "file": "outputs\\production\\prod_T400_r1\\thermo.dat",
+      "sha256": "aaddab3aae43ba61e65e2e0c0654ce205e85b54f45f02dfe471c37f6f29a9242"
+    },
+    {
+      "file": "outputs\\production\\prod_T500_r1\\thermo.dat",
+      "sha256": "38d4983d44f9b86a10d42c7b3054e8d30266a03052b51740b88542e8b5b7ceac"
+    },
+    {
+      "file": "outputs\\production\\prod_T600_r1\\thermo.dat",
+      "sha256": "f197ac3dc1047c7d5bb476d1885474944e861f3283eacfb088825545cf1ebae0"
+    },
+    {
+      "file": "outputs\\production\\prod_T700_r1\\thermo.dat",
+      "sha256": "44629c0f89c17bdb00d9e297cc2150d7f9390af32b5c6e28f2b7f7281359ee77"
+    },
+    {
+      "file": "outputs\\production\\prod_T800_r1\\thermo.dat",
+      "sha256": "5d70ca5825fa977ebe92a80c1b8daa13a48f2bebe8328ad1fcc243377ec355b9"
+    },
+    {
+      "file": "outputs\\production\\prod_T300_r2\\thermo.dat",
+      "sha256": "fdd1da58e8f0fd23a6c8af69439a818f98171cc13bfa53cebe84b6c527852805"
+    },
+    {
+      "file": "outputs\\production\\prod_T400_r2\\thermo.dat",
+      "sha256": "cfbc81c2c19b313c973df4e157c678b3c8408c694c2974aa046f0fc1f1762d51"
+    },
+    {
+      "file": "outputs\\production\\prod_T500_r2\\thermo.dat",
+      "sha256": "549b8ac90304872d77213212245d563fca4b5b355fdb27f2b5f6c72403c2644c"
+    },
+    {
+      "file": "outputs\\production\\prod_T600_r2\\thermo.dat",
+      "sha256": "d1074e93dddd494941621210f1807c2d579a3e3744f07b349e532ce2056d9f9b"
+    },
+    {
+      "file": "outputs\\production\\prod_T700_r2\\thermo.dat",
+      "sha256": "33756acdf0ef93de48480eda8a3d349778a1f2d4769c628448fe3ebc6f77fdab"
+    },
+    {
+      "file": "outputs\\production\\prod_T800_r2\\thermo.dat",
+      "sha256": "2d8f1c80201d8651db725e2af0852312d0a14d4c040b4824425e4c27c6f335bf"
+    },
+    {
+      "file": "outputs\\production\\prod_T300_r3\\thermo.dat",
+      "sha256": "d30fa83264faa88bf33310d2a52145a55222b778dbcc2d409c1c2bf796e42064"
+    },
+    {
+      "file": "outputs\\production\\prod_T400_r3\\thermo.dat",
+      "sha256": "985e56202c4b5dabfafb71b479cff04e6290f89ecf55bb70b9e14191986dcb5f"
+    },
+    {
+      "file": "outputs\\production\\prod_T500_r3\\thermo.dat",
+      "sha256": "6b69e7a884dea104ace76e38b35ef02e8ac9f23161e19ae05b30bbde71a03ad2"
+    },
+    {
+      "file": "outputs\\production\\prod_T600_r3\\thermo.dat",
+      "sha256": "e03af0ed4d6ef54f76c379a97399da012121da8584682d47afc8fdfa605c6707"
+    },
+    {
+      "file": "outputs\\production\\prod_T700_r3\\thermo.dat",
+      "sha256": "3a2928baa7f61e95d4f25d2ae4dcccf387e01bfdfd5ef48b9d8849cff68c7301"
+    },
+    {
+      "file": "outputs\\production\\prod_T800_r3\\thermo.dat",
+      "sha256": "1dc0efb0ae27a7e890322028beec4a1cf66551cdf4eda13a1fcb4aa28219820c"
+    }
+  ],
+  "production_trajectories": 18,
+  "repeats_per_temperature": 3,
+  "confidence_level": 0.95,
+  "student_t_df": 2,
+  "student_t_critical": 4.3026527299,
+  "font": "Times New Roman",
+  "font_file": "C:\\Windows\\Fonts\\times.ttf",
+  "size_mm": [
+    180,
+    78
+  ],
+  "png_dpi": 600,
+  "lattice_300_A": 3.631927769410557,
+  "lattice_800_A": 3.6644121959398634,
+  "mean_repeat_linear_increase_percent": 0.8944127912146049,
+  "mean_repeat_volume_increase_percent": 2.7073538090968428,
+  "ratio_of_pooled_mean_volume_increase_percent": 2.707353807074897,
+  "notes": [],
+  "caption_file": "docs/figure2_caption_v1.md",
+  "checks": [
+    "18 production means agree with their raw production windows",
+    "Text extents inside export canvas",
+    "Confidence bars inside axes limits",
+    "No smoothing, interpolation or modified source data"
+  ]
+}

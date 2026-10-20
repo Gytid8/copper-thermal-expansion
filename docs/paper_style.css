@@ -1,78 +1,61 @@
-/* Scoped notebook typography; native Markdown headings remain a fallback. */
-.jp-RenderedHTMLCommon, .text_cell_render {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 17px; line-height: 1.72; letter-spacing: 0;
+/* Research-article typography. Native Markdown heading levels are retained. */
+.jp-RenderedHTMLCommon,.text_cell_render {
+  font-family: "Times New Roman", Times, serif; font-size: 16px; line-height: 1.58;
 }
-.jp-RenderedHTMLCommon h1, .text_cell_render h1 {
-  font-size: 32px; line-height: 1.22; font-weight: 700;
-  margin: 0.4em 0 0.9em; letter-spacing: -0.35px;
+.jp-RenderedHTMLCommon h1,.text_cell_render h1 {
+  font-family: "Times New Roman",Times,serif; font-size: 30px; line-height: 1.18;
+  font-weight: 700; margin: .3em 0 .9em; letter-spacing: -.15px;
 }
-.jp-RenderedHTMLCommon h2, .text_cell_render h2 {
-  font-size: 25px; line-height: 1.3; font-weight: 700;
-  margin: 1.7em 0 0.7em; padding-bottom: 0.25em;
-  border-bottom: 1px solid #c8cdd2;
+.jp-RenderedHTMLCommon h2,.text_cell_render h2 {
+  font-size: 22px; line-height: 1.25; font-weight: 700; margin: 1.4em 0 .65em;
+  border: 0; padding: 0;
 }
-.jp-RenderedHTMLCommon h3, .text_cell_render h3 {
-  font-size: 20px; line-height: 1.4; font-weight: 700;
-  margin: 1.2em 0 0.6em;
+.jp-RenderedHTMLCommon h3,.text_cell_render h3 {
+  font-size: 18px; line-height: 1.3; font-weight: 700; margin: 1.15em 0 .55em;
 }
-.jp-RenderedHTMLCommon p, .text_cell_render p { margin: 0 0 1em; }
-.jp-RenderedHTMLCommon strong, .text_cell_render strong { font-weight: 700; }
-.jp-RenderedHTMLCommon table, .text_cell_render table {
-  font-family: "Segoe UI", Arial, sans-serif; font-size: 13px;
-  line-height: 1.5; width: 100%; border-collapse: collapse; margin: 1.2em 0;
+.jp-RenderedHTMLCommon p,.text_cell_render p { margin: 0 0 .9em; }
+.jp-RenderedHTMLCommon table,.text_cell_render table {
+  font: 13px/1.4 "Times New Roman",Times,serif; width: 100%; border-collapse: collapse;
+  margin: .7em 0 1.3em; border-top: 1.4px solid #303840; border-bottom: 1.4px solid #303840;
 }
-.jp-RenderedHTMLCommon th, .jp-RenderedHTMLCommon td,
-.text_cell_render th, .text_cell_render td {
-  padding: 10px 12px; text-align: left; border-bottom: 1px solid #d9dfe4;
+.jp-RenderedHTMLCommon th,.jp-RenderedHTMLCommon td,.text_cell_render th,.text_cell_render td {
+  padding: 8px 9px; text-align: left; border: 0; background: transparent;
 }
-.jp-RenderedHTMLCommon th, .text_cell_render th { font-weight: 650; }
-.jp-RenderedHTMLCommon pre, .jp-RenderedHTMLCommon code,
-.text_cell_render pre, .text_cell_render code { font-size: 13px; }
-.jp-OutputArea-output img { display: block; max-width: 100%; height: auto; margin: 14px auto; }
-body.paper-reader { background: #f1f3f5; color: #20262c; padding: 32px 16px; }
-body.paper-reader main {
-  max-width: 980px; margin: 0 auto; padding: 52px 64px;
-  background: #fff; box-shadow: 0 2px 18px #0000000b;
-}
-body.paper-reader .jp-Notebook { padding: 0; }
-body.paper-reader .jp-Cell { padding: 0; margin-bottom: 12px; }
-body.paper-reader .jp-Cell-inputWrapper { width: 100%; }
-body.paper-reader .jp-InputPrompt, body.paper-reader .jp-OutputPrompt { display: none; }
-body.paper-reader .jp-InputArea-editor { border: 0; border-radius: 0; }
-body.paper-reader .jp-CodeCell .jp-InputArea { margin: 0; }
-body.paper-reader .jp-RenderedHTMLCommon { color: #20262c; }
-body.paper-reader .jp-RenderedHTMLCommon h1,
-body.paper-reader .jp-RenderedHTMLCommon h2,
-body.paper-reader .jp-RenderedHTMLCommon h3 { color: #162a3b; }
-body.paper-reader .jp-RenderedHTMLCommon a { color: #245f89; text-decoration: none; }
-body.paper-reader .jp-RenderedHTMLCommon a:hover { text-decoration: underline; }
-body.paper-reader .paper-caption {
-  font-family: "Segoe UI", Arial, sans-serif; font-size: 13.5px; line-height: 1.6;
-  color: #3d4750; margin-bottom: 1.5em;
-}
-body.paper-reader .paper-reference { font-size: 14px; line-height: 1.55; }
-body.paper-reader details.paper-code {
-  margin: 12px 0 18px; border: 1px solid #dde3e8; background: #f8fafb;
-}
-body.paper-reader details.paper-code summary {
-  padding: 9px 13px; cursor: pointer; color: #486073;
-  font: 12px/1.5 "Segoe UI", Arial, sans-serif;
-}
-body.paper-reader .jp-CodeCell pre { font-size: 12px; line-height: 1.5; }
-body.paper-reader .jp-RenderedText pre { font-size: 12px; white-space: pre-wrap; }
-body.paper-reader .jp-RenderedHTMLCommon table tbody tr:nth-child(odd) { background: #f7f9fa; }
-@media (max-width: 720px) {
-  body.paper-reader { padding: 0; }
-  body.paper-reader main { padding: 24px 18px; }
-  .jp-RenderedHTMLCommon h1 { font-size: 27px; }
-  .jp-RenderedHTMLCommon { font-size: 16px; }
+.jp-RenderedHTMLCommon th,.text_cell_render th { border-bottom: .7px solid #667078; font-weight: bold; }
+.jp-RenderedHTMLCommon code,.text_cell_render code { font-size: 12px; }
+.jp-RenderedHTMLCommon img { max-width:100%; height:auto; }
+body.paper-reader { background: #eceeef; color:#20252b; padding:32px 18px; }
+body.paper-reader main { max-width: 1000px; margin:auto; padding:54px 68px; background:white; }
+body.paper-reader .jp-Notebook { padding:0; }
+body.paper-reader .jp-Cell { padding:0; margin:0 0 9px; }
+body.paper-reader .jp-InputPrompt,body.paper-reader .jp-OutputPrompt { display:none; }
+body.paper-reader .jp-RenderedHTMLCommon { color:#20252b; text-align:justify; hyphens:auto; }
+body.paper-reader h1,body.paper-reader h2,body.paper-reader h3 { color:#161b20; text-align:left; }
+body.paper-reader .paper-abstract { border-top:1px solid #919aa2; border-bottom:1px solid #919aa2; padding:12px 0; margin:18px 0 24px; }
+body.paper-reader .paper-abstract h2 { font-size:17px; margin:0 0 .5em; }
+body.paper-reader .paper-abstract p { font-size:14px; line-height:1.5; }
+body.paper-reader figure { margin:22px 0 26px; }
+body.paper-reader figure img { display:block; width:100%; max-width:100%; height:auto; margin:0 auto 12px; }
+body.paper-reader figcaption { font:13px/1.45 "Times New Roman",Times,serif; color:#303840; text-align:justify; }
+body.paper-reader figcaption p { margin:0; }
+body.paper-reader .paper-table-caption { font-size:13px; line-height:1.45; margin:15px 0 6px; }
+body.paper-reader .paper-reference { font-size:13px; line-height:1.42; padding-left:25px; text-indent:-25px; }
+body.paper-reader a { color:#265f81; text-decoration:none; }
+body.paper-reader a:hover { text-decoration:underline; }
+body.paper-reader details.paper-code { margin:10px 0; border:1px solid #dfe4e8; background:#f8fafb; }
+body.paper-reader details.paper-code summary { cursor:pointer; padding:8px 12px; font:12px/1.5 "Segoe UI",Arial,sans-serif; color:#526270; }
+body.paper-reader .jp-InputArea-editor { border:0; }
+body.paper-reader .jp-CodeCell pre { font-size:12px; line-height:1.45; }
+body.paper-reader .jp-RenderedText pre { font-size:12px; white-space:pre-wrap; }
+@media(max-width:720px) {
+ body.paper-reader { padding:0; } body.paper-reader main { padding:24px 18px; }
+ .jp-RenderedHTMLCommon h1 { font-size:25px; }
 }
 @media print {
-  body.paper-reader { padding: 0; background: white; }
-  body.paper-reader main { max-width: none; padding: 0; box-shadow: none; }
-  body.paper-reader .jp-RenderedHTMLCommon { font-size: 11pt; line-height: 1.5; }
-  body.paper-reader details.paper-code { display: none; }
-  body.paper-reader h2, body.paper-reader h3 { break-after: avoid; }
-  body.paper-reader img, body.paper-reader table { break-inside: avoid; }
+ @page { size:A4; margin:18mm; }
+ body.paper-reader { padding:0; background:white; } body.paper-reader main { padding:0; max-width:none; }
+ body.paper-reader .jp-RenderedHTMLCommon { font-size:10pt; line-height:1.35; }
+ body.paper-reader figure { break-inside:avoid; }
+ body.paper-reader h2,body.paper-reader h3 { break-after:avoid; }
+ body.paper-reader details.paper-code { display:none; }
 }

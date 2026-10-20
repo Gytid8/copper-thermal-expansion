@@ -14,9 +14,9 @@
 |时间步：1→0.5 fs|-0.0087%|
 |时长：延长至1+1 ns|+0.0280%|
 
-![统一300 K参考后的实验对照](results/paper_figures/figure2_reference_residual.png)
+![统一300 K参考后的实验对照](results/paper_figures/figure3_reference_composite_v1_preview.png)
 
-Notebook论文已扩写为全英文稿，正文约4000英文词（含摘要与图表说明，不含参考文献和补充材料），含3张正文图、2张补充图、2张正文表及108行可执行代码。[排版阅读版HTML](results/copper_thermal_expansion_paper.html)需下载后用浏览器打开；其中代码默认折叠，可点击展开。小组成员姓名、单位与实际分工仍需组员填写。
+英文论文已整合**6张新版图、2张正文表和12条参考文献**，图文引用与编号已同步更新。正文采用研究论文结构，可执行代码集中在Notebook附录。[双栏PDF阅读版](results/copper_thermal_expansion_journal.pdf)适合阅读与打印；[HTML阅读版](results/copper_thermal_expansion_paper.html)下载后用浏览器打开，附录代码可折叠。小组成员姓名、单位与实际分工仍需组员填写。
 
 阶段1至7的环境、建模、模拟、验证、统计与Notebook写作已完成。论文按“引言—计算方法—结果与讨论—结论”组织，参考文献已逐项核对，详见引用审阅记录。PPT、视频及答辩准备属于后续工作。
 
@@ -41,7 +41,9 @@ copper-thermal-expansion/
 │   ├── literature_review.md        全部参考文献、方法横向比较
 │   ├── project_plan.md             一周推进方案
 │   ├── recovery_record.md          中断恢复、边界清理与最终核查
-│   ├── manuscript.md               英文论文正文与引用
+│   ├── manuscript.md               六图英文论文正文、引用与附录源稿
+│   ├── figure_manifest.json        六张选定图、图注、来源和校验值
+│   ├── paper_layout_review.md     排版与整合核查记录
 │   ├── paper_style.css             标题、正文、图注和表格的统一样式
 │   ├── manuscript_revision_english.md 英文修订及检查记录
 │   ├── reference_verification_20261019.json 本轮引用核查
@@ -61,14 +63,15 @@ copper-thermal-expansion/
 │   ├── validation/                6条端点验证的独立文件夹
 │   └── study_manifest.json         24项任务的参数清单
 ├── results/                       全部计算完成后才生成
-│   ├── copper_thermal_expansion_paper.html 英文排版阅读版
+│   ├── copper_thermal_expansion_journal.pdf 双栏论文阅读版
+│   ├── copper_thermal_expansion_paper.html 六图HTML阅读版
 │   ├── run_summary.csv            单条轨迹统计
 │   ├── temperature_summary.csv    按温度汇总
 │   ├── alpha_replicates.csv        各次重复的平均系数
 │   ├── validation_comparison.csv  参数检查结果
 │   ├── metrics.json               论文使用的主要数值
 │   ├── figures/                   原始分析图表
-│   └── paper_figures/              新版论文的3张正文图与2张补充图
+│   └── paper_figures/              六张正式图、PDF/PNG和逐图数据核查
 ├── config.json                    建模及试跑参数
 ├── md_project.py                  环境检查、建模和试跑
 ├── run_study.py                   正式及验证模拟
@@ -77,7 +80,14 @@ copper-thermal-expansion/
 ├── repair_completed_recovery.py   完成输出的重复边界严格核查
 ├── show_progress.py               只读实时进度窗口
 ├── analyze_study.py               读取完整数据、统计和绘图
-├── export_paper_html.py           导出带折叠代码的排版阅读版
+├── paper_layout/main.tex         双栏PDF的可编辑排版源文件
+├── plot_figure2_v2.py             图2：趋势、波动与体积矩阵
+├── plot_figure3_v1.py             图3：实验对照与残差
+├── plot_figure4_v1.py             图4：设置矩阵与参数敏感性
+├── plot_figure5_v1.py             图5：3D轨迹与端点诊断
+├── plot_figure6_v1.py             图6：分块统计敏感性
+├── export_journal_pdf.py          导出双栏论文PDF（需要XeLaTeX）
+├── export_paper_html.py           导出六图HTML阅读版
 ├── write_paper.py                 根据真实数据生成论文
 ├── execute_notebook.py            执行论文中的展示单元格
 ├── write_readme.py                按真实文件更新进度
@@ -128,12 +138,13 @@ Windows的LAMMPS wheel还需要微软MS-MPI运行库：[微软官方入口](http
 .\.venv\Scripts\python.exe analyze_study.py
 .\.venv\Scripts\python.exe write_paper.py
 .\.venv\Scripts\python.exe execute_notebook.py
+.\.venv\Scripts\python.exe export_paper_html.py
 .\.venv\Scripts\python.exe write_readme.py
 ```
 
 完整模拟可能运行数小时，取决于电脑。不要在同一目录同时重复启动批量任务。已完成任务自动跳过，未完成旧记录会触发保护并停止；断电后的不完整任务需要先另目录归档，核查原因后重跑，不能直接删除证据或标记完成。`finish_project.py`可在已经启动批量计算后等待并衔接后续步骤；只有加`--publish`才会提交和推送到main。
 
-若只想阅读/重画图，直接执行Notebook，不必重跑模拟。重新生成论文会覆盖Notebook正文，应先保留手动修改。
+直接阅读已保存的Notebook或PDF不必安装环境，也不必重跑模拟。Notebook附录默认核查数据而不重画图；需要重画时将附录的REBUILD_FIGURES设为True。重新生成论文会覆盖Notebook正文，应先保留手动修改。双栏PDF可运行export_journal_pdf.py重建，需要XeLaTeX；本机编译路径配置见paper_layout/README.md。
 
 ## 可复现性与研究边界
 

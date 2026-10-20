@@ -1,0 +1,238 @@
+{
+  "protected_files_sha256": {
+    "results/run_summary.csv": "3af2e2de64396f297899573f32858b3438563eae1f0e1881afc69adeea5061f2",
+    "results/validation_comparison.csv": "72d7922cb72d08dd2d321ccf53c04a48c73da33e9d564ce40654647068f7e877",
+    "outputs/study_manifest.json": "3daf3708d57df7061a3356a959a0db0554ca635238ecb169df59e1fde8c7ce80",
+    "\u94dc\u70ed\u81a8\u80c0\u7814\u7a76.ipynb": "aeb15909cf9e8efa0a380db9aa60dac26d7220ef737fa8f76aed5636deef7ecb"
+  },
+  "trajectories": [
+    {
+      "id": "prod_T300_r1",
+      "temperature_K": 300,
+      "production_window_ps": [
+        200,
+        700
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 5000,
+      "lattice_mean_A": 3.6319324682597465,
+      "files_sha256": {
+        "outputs\\production\\prod_T300_r1\\thermo.dat": "33b2c9c8d125fe1c824903607664be9c15121dba0047a4656cb437a4b27806a6",
+        "outputs\\production\\prod_T300_r1\\metadata.json": "1561fe4a4fee963d9577d0c506ec0bbdc2e7ca54ac7c302ec800a7d124e76fe1",
+        "outputs\\production\\prod_T300_r1\\input.in": "6f55910fbc6ca941f4a7742f9b84269a62907b79b89db7d3338d08b1420bfe4a"
+      }
+    },
+    {
+      "id": "prod_T800_r1",
+      "temperature_K": 800,
+      "production_window_ps": [
+        200,
+        700
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 5000,
+      "lattice_mean_A": 3.6644104891622002,
+      "files_sha256": {
+        "outputs\\production\\prod_T800_r1\\thermo.dat": "5d70ca5825fa977ebe92a80c1b8daa13a48f2bebe8328ad1fcc243377ec355b9",
+        "outputs\\production\\prod_T800_r1\\metadata.json": "5cdccfaa07179e567c0aa5fe66826d9a667d9f3c940f5558f2cb63b7dc308d10",
+        "outputs\\production\\prod_T800_r1\\input.in": "b83fcc8ef3c704d2998ca4af8320b7b62800f1106472edb8a52c93306e902c99"
+      }
+    },
+    {
+      "id": "val_size12_T300",
+      "temperature_K": 300,
+      "production_window_ps": [
+        200,
+        700
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 5000,
+      "lattice_mean_A": 3.6319212452522334,
+      "files_sha256": {
+        "outputs\\validation\\val_size12_T300\\thermo.dat": "7977e74abfe069669149c9483486dd009a823b5b29869a49aad59b66a7ec7126",
+        "outputs\\validation\\val_size12_T300\\metadata.json": "5cfdb34275514d1a161868546a4d81ff031777be75c918f18fa8e8c307bc15e5",
+        "outputs\\validation\\val_size12_T300\\input.in": "483e962554bc4b594aab8779a63f29d4372861da55b7ae6c1ab5138d6c1d6711"
+      }
+    },
+    {
+      "id": "val_size12_T800",
+      "temperature_K": 800,
+      "production_window_ps": [
+        200,
+        700
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 5000,
+      "lattice_mean_A": 3.6644212518665853,
+      "files_sha256": {
+        "outputs\\validation\\val_size12_T800\\thermo.dat": "94d4c3656eed4a49bd6668a5dc5528b63029faee12f45564a147a3a12090c26c",
+        "outputs\\validation\\val_size12_T800\\metadata.json": "e75844808f4713929a88471486146faf51ec0c121526056c70fb2ce60b53d209",
+        "outputs\\validation\\val_size12_T800\\input.in": "134b1aa0443b9a255b90f39dda8a2add708dd10d3d625ac005e937380570208c"
+      }
+    },
+    {
+      "id": "val_dt05_T300",
+      "temperature_K": 300,
+      "production_window_ps": [
+        200,
+        700
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 5000,
+      "lattice_mean_A": 3.631923381445778,
+      "files_sha256": {
+        "outputs\\validation\\val_dt05_T300\\thermo.dat": "7677e3b558105ed66e9ab6a30585a1a3cb40820a60fd0c0cc5485e309a5fb3f4",
+        "outputs\\validation\\val_dt05_T300\\metadata.json": "4fdb1d8749afa8732f5c4e9a93af9305efce4e368fc44490bbf84712e91bdeec",
+        "outputs\\validation\\val_dt05_T300\\input.in": "b32fe620cbdb5f549f6ec27fc5908bdf30db2597fd75215b41d63cf7709fd3a3"
+      }
+    },
+    {
+      "id": "val_dt05_T800",
+      "temperature_K": 800,
+      "production_window_ps": [
+        200,
+        700
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 5000,
+      "lattice_mean_A": 3.6643985068255422,
+      "files_sha256": {
+        "outputs\\validation\\val_dt05_T800\\thermo.dat": "fa46c04d490ca2610a6e249afef1e038dc3922c6a7bbcc52defeaba629802d4d",
+        "outputs\\validation\\val_dt05_T800\\metadata.json": "bb5cc1102186500b95c63d99b0579e71fb6fcec29850f1da3a8e11cff590d80c",
+        "outputs\\validation\\val_dt05_T800\\input.in": "6914d783f3d05420f6c38bfc78ab52ebff195b3e44394890d3d95bc6183fafcb"
+      }
+    },
+    {
+      "id": "val_long_T300",
+      "temperature_K": 300,
+      "production_window_ps": [
+        1000,
+        2000
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 10000,
+      "lattice_mean_A": 3.6319269720001954,
+      "files_sha256": {
+        "outputs\\validation\\val_long_T300\\thermo.dat": "b966fac5b028f1de6ed828220d2adda8ecfd3f62c92be5490da79f0f47f102e6",
+        "outputs\\validation\\val_long_T300\\metadata.json": "cc579566c51482b8a72b44c52d13fff5230594814dbc5050932fbdfc31a23f99",
+        "outputs\\validation\\val_long_T300\\input.in": "979bacdec0644c6207b77998433291d7289b3092650c79c9368a87d403ee25e7"
+      }
+    },
+    {
+      "id": "val_long_T800",
+      "temperature_K": 800,
+      "production_window_ps": [
+        1000,
+        2000
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 10000,
+      "lattice_mean_A": 3.6644140241490737,
+      "files_sha256": {
+        "outputs\\validation\\val_long_T800\\thermo.dat": "3e6e51250e641efad55abe99578e5472e947c288ea92c7c9028279880c6d792a",
+        "outputs\\validation\\val_long_T800\\metadata.json": "0f8bae61db6f98d194fecb2c88bf964f562857560d39c391b32658a2cfa80fa5",
+        "outputs\\validation\\val_long_T800\\input.in": "b2ac567bd114c44b4f6bd5d2a1ffa44b6135ff0ba9f8b9d2af3cde4f86aa30c0"
+      }
+    }
+  ],
+  "baseline": "Production repeat r1; independently averaged endpoint trajectories at 300 and 800 K",
+  "coefficient_definition": "(a800/a300-1)/500 K",
+  "relative_change_definition": "100*(alpha_condition/alpha_baseline_r1-1)",
+  "timestep_conversion": "LAMMPS metal units: ps to fs by multiplication by 1000",
+  "parameter_verification": "Manifest and metadata agree; atom counts match final_atoms; input units and timestep checked",
+  "endpoint_checks": "Computed means and coefficients agree with run_summary and validation_comparison; settings and rounded changes agree with expected checks",
+  "independent_validation_repeats_per_endpoint": 1,
+  "uncertainty_intervals": "Not estimated or plotted",
+  "practical_target_percent": 2,
+  "displayed_x_limits_percent": [
+    -0.045,
+    0.11
+  ],
+  "font": "Times New Roman",
+  "font_file": "C:\\Windows\\Fonts\\times.ttf",
+  "size_mm": [
+    185,
+    100
+  ],
+  "png_dpi": 600,
+  "preview_dpi": 150,
+  "rows": [
+    {
+      "check": "baseline",
+      "condition": "Baseline",
+      "atoms": 4000,
+      "timestep_fs": 1.0,
+      "equilibration_ps": 200,
+      "production_ps": 500,
+      "a300_A": 3.6319324682597465,
+      "a800_A": 3.6644104891622002,
+      "alpha_Kinv": 1.78847052836395e-05,
+      "color": "#68717A",
+      "baseline_r1_alpha_Kinv": 1.78847052836395e-05,
+      "change_percent": 0.0,
+      "practical_limit_percent": 2.0
+    },
+    {
+      "check": "size12",
+      "condition": "Larger cell",
+      "atoms": 6912,
+      "timestep_fs": 1.0,
+      "equilibration_ps": 200,
+      "production_ps": 500,
+      "a300_A": 3.6319212452522334,
+      "a800_A": 3.6644212518665853,
+      "alpha_Kinv": 1.7896867481274283e-05,
+      "color": "#9A8AB4",
+      "baseline_r1_alpha_Kinv": 1.78847052836395e-05,
+      "change_percent": 0.068003343873424,
+      "practical_limit_percent": 2.0
+    },
+    {
+      "check": "dt05",
+      "condition": "Smaller timestep",
+      "atoms": 4000,
+      "timestep_fs": 0.5,
+      "equilibration_ps": 200,
+      "production_ps": 500,
+      "a300_A": 3.631923381445778,
+      "a800_A": 3.6643985068255422,
+      "alpha_Kinv": 1.7883155545443507e-05,
+      "color": "#D1A16D",
+      "baseline_r1_alpha_Kinv": 1.78847052836395e-05,
+      "change_percent": -0.008665159259912958,
+      "practical_limit_percent": 2.0
+    },
+    {
+      "check": "long",
+      "condition": "Longer duration",
+      "atoms": 4000,
+      "timestep_fs": 1.0,
+      "equilibration_ps": 1000,
+      "production_ps": 1000,
+      "a300_A": 3.6319269720001954,
+      "a800_A": 3.6644140241490737,
+      "alpha_Kinv": 1.7889705602195603e-05,
+      "color": "#839BA8",
+      "baseline_r1_alpha_Kinv": 1.78847052836395e-05,
+      "change_percent": 0.02795862988402842,
+      "practical_limit_percent": 2.0
+    }
+  ],
+  "notes": [],
+  "checks": [
+    "Eight raw trajectory averages verified",
+    "Raw files, inputs, metadata, summaries and Notebook unchanged",
+    "Matrix and chart row centers aligned exactly",
+    "Text extents inside canvas",
+    "Result labels inside chart boundaries"
+  ],
+  "visual_review": {
+    "preview": "150 dpi at 185 \u00d7 100 mm",
+    "findings": [
+      "Condition rows aligned with their result bars",
+      "Highlighted cells match changed parameters",
+      "Table headers, numeric cells, signed bar labels and axis label readable",
+      "No observed overlaps or clipping"
+    ]
+  }
+}

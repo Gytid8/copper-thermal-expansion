@@ -1,0 +1,436 @@
+{
+  "protected_files_sha256": {
+    "results\\block_statistics.csv": "f7ec4043bd50e579e9ce168f3f6518eef73281af9cd019a0cfe9c489115ee867",
+    "results\\run_summary.csv": "3af2e2de64396f297899573f32858b3438563eae1f0e1881afc69adeea5061f2",
+    "outputs\\study_manifest.json": "3daf3708d57df7061a3356a959a0db0554ca635238ecb169df59e1fde8c7ce80",
+    "\u94dc\u70ed\u81a8\u80c0\u7814\u7a76.ipynb": "aeb15909cf9e8efa0a380db9aa60dac26d7220ef737fa8f76aed5636deef7ecb",
+    "results\\paper_figures\\figure1_lattice_volume.png": "40f8a1f34c7f83fba1d4916ec0250576e120e0108027210e58e998977c37e4fc",
+    "results\\paper_figures\\figure1_model_workflow_generated_v1.png": "62d27848a862cea0a1a3d46921532a40dfc213d2e8094d453c788659a6140364",
+    "results\\paper_figures\\figure2_composite_v2.pdf": "f804003bd5d7eb86fee25fc10200a3d24af7726006e93155d0c865334658f540",
+    "results\\paper_figures\\figure2_composite_v2.png": "adf38aa21bcd6709346cb3feffaad320df0c12fe1c4a548808d7bb32a2fea534",
+    "results\\paper_figures\\figure2_composite_v2_audit.json": "55b7d4dd06e91e933f2f9e9d32dce4a28cb4af1d022b1752942543410df0a408",
+    "results\\paper_figures\\figure2_composite_v2_centering.csv": "ca79b52712cef392947259b52933df6bc460d1815a0a37a7c3cae05105a6941b",
+    "results\\paper_figures\\figure2_composite_v2_data.csv": "bf8e693ae1b86196a3b41be50326093f553829705a8c2174b485aa6610d91ef8",
+    "results\\paper_figures\\figure2_composite_v2_distribution.csv": "a357f343c49ed543685f6bf8bb8dbee94fcaec7d55899e6a21092ec358fbdacd",
+    "results\\paper_figures\\figure2_composite_v2_preview.png": "9b1667dfe59f921cf87d793ce1f7291d29c76da6bd5cc4566018690a7bee230e",
+    "results\\paper_figures\\figure2_lattice_volume_v1.pdf": "02e81dedb8336b4e9b9f68261f812aa611e378bbc2d769a2237038e29ed8f056",
+    "results\\paper_figures\\figure2_lattice_volume_v1.png": "4366e11fbd22cfc0cfbf8e61a1a951ad778d2b7968fef468c497efc5b8d01b2a",
+    "results\\paper_figures\\figure2_lattice_volume_v1_audit.json": "6755098f71c0f5c765fc33031f92b5bd48621a82c42dcd26cb9625eb7a1b44b4",
+    "results\\paper_figures\\figure2_lattice_volume_v1_data.csv": "1d08bcbf25694e482e040993b59403b6b72980b0ba639c180b236e3b3ebb9949",
+    "results\\paper_figures\\figure2_reference_residual.png": "fec740244c82a492710abd603d8969d410077bbbc631a3ce3ad3d7baecc151cf",
+    "results\\paper_figures\\figure3_reference_composite_v1.pdf": "defac45578061c704d550edc6e5753315bad7eea7b4cb51638448dfb54ef5e9f",
+    "results\\paper_figures\\figure3_reference_composite_v1.png": "ba5dc468a129bd06f3fdec7e3a55dff1f29ff629b9a1b24159c263df6cbd0ddb",
+    "results\\paper_figures\\figure3_reference_composite_v1_audit.json": "cab70fdda1dd5f02911c59ce782205e90b6218c268c4408fa23e9cc4e2ca84fb",
+    "results\\paper_figures\\figure3_reference_composite_v1_coefficient_summary.csv": "348bb1eefd071e579b3269591330cc0af4608aae0068f105314968b5dac712fc",
+    "results\\paper_figures\\figure3_reference_composite_v1_data.csv": "4bf0f934f17f775ac7599e61cc32494b88eb3728982fac959d753a194a3d4ad5",
+    "results\\paper_figures\\figure3_reference_composite_v1_preview.png": "aeb16657f30a3eda7c174e263aeafb81cc2b48a79894a96186bf1861422defbd",
+    "results\\paper_figures\\figure3_reference_composite_v1_replicates.csv": "cdec97ddcdb8d32a5664e28f93fc926b1316606d44f97cc338316f4b61aef865",
+    "results\\paper_figures\\figure3_sensitivity.png": "8d7af1afe1e586abafa0604e6dd93bd602636e83b4e576ce1b7d1080a251339c",
+    "results\\paper_figures\\figure4_settings_sensitivity_v1.pdf": "3dd12a09611e2d0cabedb6b760cddd8c1c821c4b9165ffcb9025da977c125b90",
+    "results\\paper_figures\\figure4_settings_sensitivity_v1.png": "d2d717f12148935ce1814ebd1bdd233f564ba92a43e947d1a38f89f3db4955af",
+    "results\\paper_figures\\figure4_settings_sensitivity_v1_audit.json": "a8db146e97507a425628755883812338895a785e1c114a452903fe2ee8a36e45",
+    "results\\paper_figures\\figure4_settings_sensitivity_v1_data.csv": "5e3a021f93dc2ac5c516864eff4bc2dca4795d296e0c435cad149270c2e5a830",
+    "results\\paper_figures\\figure4_settings_sensitivity_v1_preview.png": "90e1c270cbda7530dadf1d20eca5cafeccc65ea922d107f1b54769f599e0494c",
+    "results\\paper_figures\\figure5_trajectory_diagnostics_v1.pdf": "4c3b66ed3045ab3e7a5b333e11b04ef8ae9563fc865b1c95bcd0fbf15fef6bfb",
+    "results\\paper_figures\\figure5_trajectory_diagnostics_v1.png": "a39c5aded11048ae1c92acd18c1f53f8e3c5f700beb520c0447f24e8d3f785f9",
+    "results\\paper_figures\\figure5_trajectory_diagnostics_v1_audit.json": "327155f25c94deff18f1cc33b845010d68e9dceb6ebaf078a9740f785f6b1e5a",
+    "results\\paper_figures\\figure5_trajectory_diagnostics_v1_preview.png": "5793e9d2e2dcee78859b01a31684119c1f5b92293fc96d0dea2f092ff87d3b7e",
+    "results\\paper_figures\\figure5_trajectory_diagnostics_v1_summary.csv": "94a19a2667e38b26a29dd3da79ba218578c741654795b6bac0f528d051021ef1",
+    "results\\paper_figures\\figureS1_endpoint_traces.png": "b2a5addd3fed4dc9fd795301806f45438bafed573e4808ecfc6bdb3c17f032b3",
+    "results\\paper_figures\\figureS2_block_statistics.png": "fb0edd904448883777b1af7491d34e3b74ed086ed66db278e77611943b7e6734"
+  },
+  "sources": [
+    {
+      "job": "prod_T300_r1",
+      "cells": 10,
+      "production_window_ps": [
+        200,
+        700
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 5000,
+      "files_sha256": {
+        "outputs\\production\\prod_T300_r1\\thermo.dat": "33b2c9c8d125fe1c824903607664be9c15121dba0047a4656cb437a4b27806a6",
+        "outputs\\production\\prod_T300_r1\\metadata.json": "1561fe4a4fee963d9577d0c506ec0bbdc2e7ca54ac7c302ec800a7d124e76fe1"
+      }
+    },
+    {
+      "job": "prod_T300_r2",
+      "cells": 10,
+      "production_window_ps": [
+        200,
+        700
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 5000,
+      "files_sha256": {
+        "outputs\\production\\prod_T300_r2\\thermo.dat": "fdd1da58e8f0fd23a6c8af69439a818f98171cc13bfa53cebe84b6c527852805",
+        "outputs\\production\\prod_T300_r2\\metadata.json": "7c1b16343ac2d8f5206449758518a6f54ff9f2af2ec991010e903832bd867a41"
+      }
+    },
+    {
+      "job": "prod_T300_r3",
+      "cells": 10,
+      "production_window_ps": [
+        200,
+        700
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 5000,
+      "files_sha256": {
+        "outputs\\production\\prod_T300_r3\\thermo.dat": "d30fa83264faa88bf33310d2a52145a55222b778dbcc2d409c1c2bf796e42064",
+        "outputs\\production\\prod_T300_r3\\metadata.json": "7186beb5558aed19b8419f6094ddcaecfa4d85c641d3dca7a0208446a98b0160"
+      }
+    },
+    {
+      "job": "prod_T400_r1",
+      "cells": 10,
+      "production_window_ps": [
+        200,
+        700
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 5000,
+      "files_sha256": {
+        "outputs\\production\\prod_T400_r1\\thermo.dat": "aaddab3aae43ba61e65e2e0c0654ce205e85b54f45f02dfe471c37f6f29a9242",
+        "outputs\\production\\prod_T400_r1\\metadata.json": "a694627c363acbe6c5d47b768bf13fe4b74d06bd282c605ed995330e1d8fdfbf"
+      }
+    },
+    {
+      "job": "prod_T400_r2",
+      "cells": 10,
+      "production_window_ps": [
+        200,
+        700
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 5000,
+      "files_sha256": {
+        "outputs\\production\\prod_T400_r2\\thermo.dat": "cfbc81c2c19b313c973df4e157c678b3c8408c694c2974aa046f0fc1f1762d51",
+        "outputs\\production\\prod_T400_r2\\metadata.json": "cb4933c0f2c1d6880dac71a0b36af20677fb37bb33437e31105737e85ff5e4af"
+      }
+    },
+    {
+      "job": "prod_T400_r3",
+      "cells": 10,
+      "production_window_ps": [
+        200,
+        700
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 5000,
+      "files_sha256": {
+        "outputs\\production\\prod_T400_r3\\thermo.dat": "985e56202c4b5dabfafb71b479cff04e6290f89ecf55bb70b9e14191986dcb5f",
+        "outputs\\production\\prod_T400_r3\\metadata.json": "4d08aa3712dd32d3406189fdb26c47f18752f857c2de36be1e5012a0ddf9a5cf"
+      }
+    },
+    {
+      "job": "prod_T500_r1",
+      "cells": 10,
+      "production_window_ps": [
+        200,
+        700
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 5000,
+      "files_sha256": {
+        "outputs\\production\\prod_T500_r1\\thermo.dat": "38d4983d44f9b86a10d42c7b3054e8d30266a03052b51740b88542e8b5b7ceac",
+        "outputs\\production\\prod_T500_r1\\metadata.json": "c815498b78b64e6bd8b21104351976905c572b021dd049e01b8ce8f39529194b"
+      }
+    },
+    {
+      "job": "prod_T500_r2",
+      "cells": 10,
+      "production_window_ps": [
+        200,
+        700
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 5000,
+      "files_sha256": {
+        "outputs\\production\\prod_T500_r2\\thermo.dat": "549b8ac90304872d77213212245d563fca4b5b355fdb27f2b5f6c72403c2644c",
+        "outputs\\production\\prod_T500_r2\\metadata.json": "2d53bb2a029624712ee0a3d2121815c2e98207856a089d63728e30a3999205c8"
+      }
+    },
+    {
+      "job": "prod_T500_r3",
+      "cells": 10,
+      "production_window_ps": [
+        200,
+        700
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 5000,
+      "files_sha256": {
+        "outputs\\production\\prod_T500_r3\\thermo.dat": "6b69e7a884dea104ace76e38b35ef02e8ac9f23161e19ae05b30bbde71a03ad2",
+        "outputs\\production\\prod_T500_r3\\metadata.json": "083e638d1f0ebc1373e519968cad3cf6592ab138526263e00368e63fabb30156"
+      }
+    },
+    {
+      "job": "prod_T600_r1",
+      "cells": 10,
+      "production_window_ps": [
+        200,
+        700
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 5000,
+      "files_sha256": {
+        "outputs\\production\\prod_T600_r1\\thermo.dat": "f197ac3dc1047c7d5bb476d1885474944e861f3283eacfb088825545cf1ebae0",
+        "outputs\\production\\prod_T600_r1\\metadata.json": "b4e7a6ac33e60f483f5880584efd37924f144060b77ca168545efbb92ee8dd86"
+      }
+    },
+    {
+      "job": "prod_T600_r2",
+      "cells": 10,
+      "production_window_ps": [
+        200,
+        700
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 5000,
+      "files_sha256": {
+        "outputs\\production\\prod_T600_r2\\thermo.dat": "d1074e93dddd494941621210f1807c2d579a3e3744f07b349e532ce2056d9f9b",
+        "outputs\\production\\prod_T600_r2\\metadata.json": "8efe69632da88112ddf782ed90eca2fa5103a3009601e05b04b91917336b1b87"
+      }
+    },
+    {
+      "job": "prod_T600_r3",
+      "cells": 10,
+      "production_window_ps": [
+        200,
+        700
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 5000,
+      "files_sha256": {
+        "outputs\\production\\prod_T600_r3\\thermo.dat": "e03af0ed4d6ef54f76c379a97399da012121da8584682d47afc8fdfa605c6707",
+        "outputs\\production\\prod_T600_r3\\metadata.json": "f4110209fe31cbeb50fbde4570d5304191b7b94d36a276bb1964e188498b1116"
+      }
+    },
+    {
+      "job": "prod_T700_r1",
+      "cells": 10,
+      "production_window_ps": [
+        200,
+        700
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 5000,
+      "files_sha256": {
+        "outputs\\production\\prod_T700_r1\\thermo.dat": "44629c0f89c17bdb00d9e297cc2150d7f9390af32b5c6e28f2b7f7281359ee77",
+        "outputs\\production\\prod_T700_r1\\metadata.json": "eb560368a11af822f9e0b414bf93b2beef9f7873f9124d3a0b691d6e905deae2"
+      }
+    },
+    {
+      "job": "prod_T700_r2",
+      "cells": 10,
+      "production_window_ps": [
+        200,
+        700
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 5000,
+      "files_sha256": {
+        "outputs\\production\\prod_T700_r2\\thermo.dat": "33756acdf0ef93de48480eda8a3d349778a1f2d4769c628448fe3ebc6f77fdab",
+        "outputs\\production\\prod_T700_r2\\metadata.json": "7363c15ea04cbc89d6b8c9da2f2215f80698522976d87c0829fa51270bd4ce8e"
+      }
+    },
+    {
+      "job": "prod_T700_r3",
+      "cells": 10,
+      "production_window_ps": [
+        200,
+        700
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 5000,
+      "files_sha256": {
+        "outputs\\production\\prod_T700_r3\\thermo.dat": "3a2928baa7f61e95d4f25d2ae4dcccf387e01bfdfd5ef48b9d8849cff68c7301",
+        "outputs\\production\\prod_T700_r3\\metadata.json": "8749fd8a04f41e197826e1926950331930482ff81a1ae67bd4125907aaa2458d"
+      }
+    },
+    {
+      "job": "prod_T800_r1",
+      "cells": 10,
+      "production_window_ps": [
+        200,
+        700
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 5000,
+      "files_sha256": {
+        "outputs\\production\\prod_T800_r1\\thermo.dat": "5d70ca5825fa977ebe92a80c1b8daa13a48f2bebe8328ad1fcc243377ec355b9",
+        "outputs\\production\\prod_T800_r1\\metadata.json": "5cdccfaa07179e567c0aa5fe66826d9a667d9f3c940f5558f2cb63b7dc308d10"
+      }
+    },
+    {
+      "job": "prod_T800_r2",
+      "cells": 10,
+      "production_window_ps": [
+        200,
+        700
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 5000,
+      "files_sha256": {
+        "outputs\\production\\prod_T800_r2\\thermo.dat": "2d8f1c80201d8651db725e2af0852312d0a14d4c040b4824425e4c27c6f335bf",
+        "outputs\\production\\prod_T800_r2\\metadata.json": "78e9f9d4a859b903b4f8b6fb4e95b2c03e9ab73aa58aa7d094b8ed9a483a4cf3"
+      }
+    },
+    {
+      "job": "prod_T800_r3",
+      "cells": 10,
+      "production_window_ps": [
+        200,
+        700
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 5000,
+      "files_sha256": {
+        "outputs\\production\\prod_T800_r3\\thermo.dat": "1dc0efb0ae27a7e890322028beec4a1cf66551cdf4eda13a1fcb4aa28219820c",
+        "outputs\\production\\prod_T800_r3\\metadata.json": "ba15f5dae95b2c4a4ef62a02a24899a0b06ed51a1c2ab4a3a97b88c400ae0ea8"
+      }
+    },
+    {
+      "job": "val_size12_T300",
+      "cells": 12,
+      "production_window_ps": [
+        200,
+        700
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 5000,
+      "files_sha256": {
+        "outputs\\validation\\val_size12_T300\\thermo.dat": "7977e74abfe069669149c9483486dd009a823b5b29869a49aad59b66a7ec7126",
+        "outputs\\validation\\val_size12_T300\\metadata.json": "5cfdb34275514d1a161868546a4d81ff031777be75c918f18fa8e8c307bc15e5"
+      }
+    },
+    {
+      "job": "val_size12_T800",
+      "cells": 12,
+      "production_window_ps": [
+        200,
+        700
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 5000,
+      "files_sha256": {
+        "outputs\\validation\\val_size12_T800\\thermo.dat": "94d4c3656eed4a49bd6668a5dc5528b63029faee12f45564a147a3a12090c26c",
+        "outputs\\validation\\val_size12_T800\\metadata.json": "e75844808f4713929a88471486146faf51ec0c121526056c70fb2ce60b53d209"
+      }
+    },
+    {
+      "job": "val_dt05_T300",
+      "cells": 10,
+      "production_window_ps": [
+        200,
+        700
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 5000,
+      "files_sha256": {
+        "outputs\\validation\\val_dt05_T300\\thermo.dat": "7677e3b558105ed66e9ab6a30585a1a3cb40820a60fd0c0cc5485e309a5fb3f4",
+        "outputs\\validation\\val_dt05_T300\\metadata.json": "4fdb1d8749afa8732f5c4e9a93af9305efce4e368fc44490bbf84712e91bdeec"
+      }
+    },
+    {
+      "job": "val_dt05_T800",
+      "cells": 10,
+      "production_window_ps": [
+        200,
+        700
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 5000,
+      "files_sha256": {
+        "outputs\\validation\\val_dt05_T800\\thermo.dat": "fa46c04d490ca2610a6e249afef1e038dc3922c6a7bbcc52defeaba629802d4d",
+        "outputs\\validation\\val_dt05_T800\\metadata.json": "bb5cc1102186500b95c63d99b0579e71fb6fcec29850f1da3a8e11cff590d80c"
+      }
+    },
+    {
+      "job": "val_long_T300",
+      "cells": 10,
+      "production_window_ps": [
+        1000,
+        2000
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 10000,
+      "files_sha256": {
+        "outputs\\validation\\val_long_T300\\thermo.dat": "b966fac5b028f1de6ed828220d2adda8ecfd3f62c92be5490da79f0f47f102e6",
+        "outputs\\validation\\val_long_T300\\metadata.json": "cc579566c51482b8a72b44c52d13fff5230594814dbc5050932fbdfc31a23f99"
+      }
+    },
+    {
+      "job": "val_long_T800",
+      "cells": 10,
+      "production_window_ps": [
+        1000,
+        2000
+      ],
+      "window_convention": "left boundary excluded; right boundary included",
+      "samples": 10000,
+      "files_sha256": {
+        "outputs\\validation\\val_long_T800\\thermo.dat": "3e6e51250e641efad55abe99578e5472e947c288ea92c7c9028279880c6d792a",
+        "outputs\\validation\\val_long_T800\\metadata.json": "0f8bae61db6f98d194fecb2c88bf964f562857560d39c391b32658a2cfa80fa5"
+      }
+    }
+  ],
+  "block_durations_ps": [
+    1,
+    2,
+    5,
+    10,
+    20,
+    50
+  ],
+  "definition": "sample SD (ddof=1) of complete nonoverlapping block means / sqrt(number of blocks)",
+  "normalization": "within trajectory SEM(duration)/SEM(20ps)",
+  "color_transform": "log2(SEM ratio); one symmetric scale centered on zero",
+  "color_limits_log2": [
+    -0.8499898443343774,
+    0.8499898443343774
+  ],
+  "colorbar_ratio_ticks": [
+    0.75,
+    1.0,
+    1.5
+  ],
+  "discarded_samples_total_across_all_block_calculations": 0,
+  "max_relative_difference_from_existing_block_file": 1.8797283622743065e-16,
+  "ratio_summary": {
+    "median": 1.017633145197994,
+    "observed_min": 0.5643701041837033,
+    "observed_max": 1.2991484835414937
+  },
+  "font": "Times New Roman",
+  "font_file": "C:\\Windows\\Fonts\\times.ttf",
+  "size_mm": [
+    185,
+    160
+  ],
+  "png_dpi": 600,
+  "preview_dpi": 150,
+  "notes": [],
+  "verification": [
+    "All 144 SEM values and block counts agree with previous records",
+    "All 24 raw production windows verified",
+    "All data, prior figures and Notebook unchanged",
+    "No heatmap values clipped",
+    "20ps ratios exactly one",
+    "Paired scatter equal limits and equal physical aspect",
+    "Text extents inside canvas"
+  ],
+  "visual_review": {
+    "preview": "150 dpi at 185 \u00d7 160 mm",
+    "findings": [
+      "All 24 labels readable and ordered correctly",
+      "20 ps reference column outlined in copper",
+      "Endpoint legend moved to whitespace between curves",
+      "Heatmap colorbar and discrete temperature key readable",
+      "Paired comparison uses equal scales and equal aspect",
+      "No observed text overlaps or clipping"
+    ]
+  }
+}

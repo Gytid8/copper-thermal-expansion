@@ -1,0 +1,351 @@
+\documentclass[10pt,a4paper,twocolumn]{article}
+\usepackage[margin=18mm,columnsep=6mm,headheight=12pt]{geometry}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+\setmonofont{Consolas}
+\usepackage{amsmath,amssymb,graphicx,booktabs,array,tabularx}
+\usepackage{caption,titlesec,fancyhdr,dblfloatfix,placeins,xurl}
+\usepackage[unicode,hidelinks,breaklinks]{hyperref}
+\hypersetup{pdftitle={Thermal Expansion of Single-Crystal Copper},pdfauthor={Authors to be completed}}
+\DeclareCaptionFont{articlecaption}{\fontsize{8.5}{10.2}\selectfont}
+\captionsetup{font={articlecaption},labelfont=bf,labelsep=period,justification=justified,singlelinecheck=false}
+\captionsetup[table]{position=top,skip=6pt}
+\captionsetup[figure]{skip=7pt}
+\titlespacing*{\section}{0pt}{10pt}{5pt}
+\titlespacing*{\subsection}{0pt}{8pt}{4pt}
+\titleformat{\section}{\bfseries\fontsize{11}{13}\selectfont}{}{0pt}{}
+\titleformat{\subsection}{\bfseries\fontsize{10}{12}\selectfont}{}{0pt}{}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0pt}
+\setlength{\textfloatsep}{12pt plus 2pt minus 2pt}
+\setlength{\dbltextfloatsep}{12pt plus 2pt minus 2pt}
+\renewcommand{\baselinestretch}{1.0}
+\AtBeginDocument{\fontsize{9.5}{11.3}\selectfont}
+\renewcommand{\topfraction}{.94}
+\renewcommand{\dbltopfraction}{.94}
+\renewcommand{\textfraction}{.04}
+\renewcommand{\floatpagefraction}{.65}
+\renewcommand{\dblfloatpagefraction}{.65}
+\setcounter{topnumber}{3}
+\setcounter{dbltopnumber}{2}
+\setcounter{totalnumber}{4}
+\setlength{\emergencystretch}{1.5em}
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@dblfptop}{0pt}
+\setlength{\@fpsep}{12pt}
+\setlength{\@dblfpsep}{12pt}
+\makeatother
+\urlstyle{same}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize Copper thermal expansion}
+\fancyhead[R]{\footnotesize Research article}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{.3pt}
+\begin{document}
+\twocolumn[\begin{@twocolumnfalse}
+\begin{center}
+{\fontsize{19}{22}\selectfont\bfseries Thermal Expansion of Single-Crystal Copper from 300 to 800 K: Prediction and Numerical Assessment of the Mishin EAM1 Potential\par}
+\vspace{9pt}
+{\normalsize [Full names of all group members]\par}
+\vspace{4pt}
+{\small\itshape [University and School of Materials Science and Engineering]\par}
+\end{center}
+\vspace{4pt}\hrule\vspace{7pt}
+\noindent\textbf{Abstract}\par\smallskip
+{\small\noindent Thermal expansion provides a finite-temperature test of an interatomic potential beyond its description of a relaxed crystal. Here, classical molecular dynamics simulations were performed in LAMMPS to assess the Mishin EAM1 potential for periodic face-centered cubic copper between 300 and 800 K. A 4,000-atom crystal was simulated at six temperatures under isotropic NPT conditions with a target pressure of 0 bar. Three independently initialized trajectories were sampled at each temperature, and additional endpoint calculations examined system size, integration timestep, and simulation duration. The lattice parameter increased from 3.63193 to 3.66441 Å, corresponding to a linear expansion of 0.8944\% and a volume increase of 2.7074\%. The engineering interval-average linear expansion coefficient was \textbf{17.888 × 10\textsuperscript{-6} K\textsuperscript{-1}}, with a 95\% statistical confidence-interval half-width of 0.015 × 10\textsuperscript{-6} K\textsuperscript{-1} across three repeats. After conversion to the same 300 K reference, the corresponding NIST SRM 736 value was 18.6038 × 10\textsuperscript{-6} K\textsuperscript{-1}, giving a relative deviation of \textbf{−3.85\%}. Each tested numerical change altered the coefficient by less than 0.1\%, substantially less than this reference discrepancy. These results support a stable prediction of positive thermal expansion within the tested protocol, while distinguishing numerical robustness from experimental accuracy. The available observables do not identify a unique physical origin for the remaining discrepancy.\par}
+\vspace{5pt}
+{\small\noindent\textbf{Keywords:} single-crystal copper; molecular dynamics; embedded-atom method; thermal expansion; numerical sensitivity\par}
+\vspace{7pt}\hrule\vspace{14pt}
+\end{@twocolumnfalse}]
+\section*{1. Introduction}
+
+Thermal expansion connects atomic interactions with dimensional changes that matter in materials processing and service. When neighboring components expand by different amounts, their mechanical constraints can generate thermal stresses. Copper is therefore a useful model material for examining how an atomistic description reproduces a measurable thermal response. Alper and Politzer investigated its temperature-dependent behavior using molecular dynamics in a context relevant to metallic components in microelectronic systems \cite{r1}. For a periodic crystal, the lattice parameter and simulation-cell volume are directly accessible quantities, allowing a relatively simple model to support a quantitative assessment rather than only a qualitative visualization.
+
+
+The central modeling issue is the temperature dependence of the equilibrium volume. A relaxed lattice at zero temperature characterizes a minimum of the potential-energy surface; thermal expansion instead depends on the response sampled away from that minimum. In an ideal harmonic description with a fixed reference structure, symmetric vibrations alone do not produce the required shift of the equilibrium spacing. An anharmonic description is therefore essential. In classical molecular dynamics, this response is sampled through atomic trajectories on the chosen potential-energy surface. The resulting expansion reflects both that interaction model and the statistical protocol used to estimate its finite-temperature averages.
+
+
+Several computational approaches address this problem, but their assumptions differ. Narasimhan and de Gironcoli combined density functional calculations, density functional perturbation theory, and the quasiharmonic approximation to investigate the thermal properties of copper and the influence of exchange-correlation approximations \cite{r2}. In that framework, volume-dependent vibrational frequencies contribute to the equilibrium thermodynamics. Molecular dynamics instead samples the finite-temperature response of a specified potential directly, subject to classical statistical mechanics and finite simulation time. A comparison between these approaches must consequently distinguish the interaction model from the treatment of temperature; a more elaborate model is not automatically more accurate for every observable.
+
+
+Thermal expansion has also been used to validate modern potentials. Lysogorskiy et al. included copper thermal expansion in their assessment of the atomic cluster expansion implementation PACE \cite{r3}. Olsson et al. investigated the influence of microstructure on copper expansion using classical molecular dynamics and electronic-structure calculations \cite{r4}. Their work illustrates why the material state must be specified when comparing coefficients: a periodic single crystal and a nanocrystalline material contain different atomic environments. These studies motivate expansion as a useful validation quantity, while also showing that results from unlike structures or coefficient definitions cannot be placed on a common accuracy scale without further analysis.
+
+
+The Mishin EAM1 potential offers a practical starting point for a course-scale investigation. Its original development and evaluation addressed structural stability and lattice defects in copper \cite{r5}, and the NIST repository provides an identifiable parameter file \cite{r6}. These properties make the model reproducible and scientifically motivated. However, successful predictions of static structures or defects do not establish the accuracy of an interval-average thermal expansion coefficient. That quantity requires its own finite-temperature calculation and an experimental comparison with a consistent reference length.
+
+
+The present study asks \textbf{how accurately the Mishin EAM1 potential predicts the 300–800 K interval-average expansion of ideal periodic copper, and whether the observed deviation is comparable to the numerical effects examined here}. Six temperature points and three independent initializations provide the main dataset. Endpoint calculations then test size, timestep, and duration, while the experimental comparison explicitly reconciles reference temperatures. The contribution is a reproducible and critically assessed benchmark of an established model. Reproducing the known positive expansion of copper is not presented as a new physical discovery.
+
+
+\section*{2. Computational Methods}
+
+\subsection*{2.1. Crystal model and interatomic potential}
+
+The simulation cell contained 10 × 10 × 10 conventional FCC unit cells, giving 4,000 Cu atoms. Figure 1 summarizes the crystal model and simulation workflow. Its axes were aligned with [100], [010], and [001], and periodic boundary conditions were applied in all three directions. The initial lattice parameter was 3.615 Å. Atomic coordinates and cell dimensions were relaxed by conjugate-gradient minimization before the finite-temperature calculations. The static structural check identified FCC environments for all 4,000 atoms and a relaxed lattice parameter of approximately 3.61500 Å. This establishes the intended starting structure; it does not by itself demonstrate that all subsequent finite-temperature configurations remain free of defects.
+
+
+The periodic cell represents a bulk-like single crystal without initial grain boundaries or free surfaces. Replicating a conventional cell produces a finite atomistic model whose translational periodicity removes an external surface but restricts the wavelengths that can be represented. Thus, periodic boundaries reduce surface-related complications without eliminating finite-size effects. The larger endpoint model used below tests one increase in size, rather than establishing a complete thermodynamic-limit extrapolation.
+
+
+Atomic interactions were described using the Mishin copper EAM1 potential \cite{r5}, and trajectories were integrated with LAMMPS \cite{r7}. The embedded-atom energy has the form
+
+
+\begin{equation}
+\begin{aligned}
+E&=\sum_i F(\rho_i)+\frac{1}{2}\sum_{i\ne j}\phi(r_{ij}),\\
+\rho_i&=\sum_{j\ne i}f(r_{ij}).
+\end{aligned}\tag{1}
+\end{equation}
+
+Here, $F$ is the embedding contribution, $\rho_i$ is the local density contribution from neighboring atoms, and $\phi$ is the pair contribution. This environment-dependent form allows a metallic many-body description at a computational cost suitable for repeated sampling. The specific file was \textbf{\texttt{Cu01.eam.alloy}}, identified as EAM1 in the NIST repository and read using the LAMMPS \texttt{eam/alloy} pair style \cite{r6}. No potential parameters were refitted. The analysis therefore evaluates one existing parameterization, rather than an EAM model class or a newly optimized potential.
+
+
+\begin{figure*}[!tp]
+\centering
+\includegraphics[width=\textwidth,height=.64\textheight,keepaspectratio]{../results/paper_figures/figure1_model_workflow_generated_v1.png}
+\caption{\textbf{Crystal model and simulation workflow.} (a) Conventional FCC copper cell, with eight corner sites and six face-center sites contributing four effective atoms per cell. (b) Periodic 10 × 10 × 10 conventional-cell model containing 4,000 atoms; the displayed lattice is a schematic representation rather than an atom-count-resolved trajectory snapshot. (c) Model preparation, independently initialized NPT calculations, the 200 ps equilibration and 500 ps production segments, and expansion analysis. Structural illustrations are not to scale.}\label{fig1}
+\end{figure*}
+
+\subsection*{2.2. Finite-temperature simulation protocol}
+
+Independent initial velocities were generated at 300, 400, 500, 600, 700, and 800 K, using three different random seeds at each temperature. The temperatures were simulated separately rather than sampled along a single continuous heating trajectory. This choice reduces dependence on an inherited heating history and permits an estimate of variability across independent initializations. It does not replace equilibration at each state point, because every initialized crystal must still adjust to its finite-temperature equilibrium volume.
+
+
+The main simulations used an isotropic NPT ensemble with a scalar target pressure of 0 bar. The Nosé–Hoover-type temperature and pressure controls implemented in LAMMPS were used with a timestep of 1 fs, a temperature damping time of 0.1 ps, and a pressure damping time of 1 ps \cite{r8}. A second time integrator was not applied to the same atoms. Isotropic cell changes preserve a cubic simulation box and are consistent with the scalar expansion investigated here. This setup does not independently measure direction-dependent thermal strains or the response to a deviatoric load.
+
+
+Allowing the volume to fluctuate is central to the measurement. At fixed volume, heating could produce an internal pressure response without permitting the crystal to adopt a new mean length. Under NPT conditions, the box can adjust and its equilibrated mean dimensions become the observable of interest. The target pressure is an imposed control parameter; instantaneous pressure fluctuations and a small nonzero finite-trajectory mean are expected to be assessed statistically rather than treated as evidence that the input pressure was different from zero.
+
+
+Each main trajectory contained 200 ps of equilibration followed by 500 ps of production sampling. Scalar quantities were recorded every 0.1 ps, yielding 5,000 production samples per trajectory. The equilibration segment was excluded from reported means. This separation fixes the statistical definition of the analysis before comparison with the reference and prevents initial cell adjustment from being averaged into the production estimate. The numerical settings and their endpoint variants are summarized in Table 1.
+
+
+\begin{table*}[!tp]
+\caption{\textbf{Main simulation protocol and endpoint sensitivity calculations.} Parameters not explicitly varied were retained at their main-protocol values. Validation trajectories were analyzed separately from the three production repeats.}\label{tab1}
+\centering
+{\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{\dimexpr 0.230\textwidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.380\textwidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.390\textwidth-2\tabcolsep\relax}}
+\toprule
+\textbf{Parameter} & \textbf{Main protocol} & \textbf{Endpoint variation} \\
+\midrule
+Structure and atom count & FCC; 4,000 atoms; three-dimensional periodicity & 12\textsuperscript{3} conventional cells; 6,912 atoms \\
+Temperatures and repeats & 300–800 K in 100 K increments; three repeats per temperature & 300 and 800 K; one trajectory per condition and endpoint \\
+Target pressure and cell control & 0 bar; isotropic & Unchanged \\
+Integration timestep & 1 fs & 0.5 fs for the timestep check \\
+Temperature / pressure damping & 0.1 ps / 1 ps & Unchanged \\
+Equilibration + production & 200 ps + 500 ps & 1,000 ps + 1,000 ps for the duration check \\
+Scalar recording interval & 0.1 ps & Unchanged \\
+Number of trajectories & 18 production trajectories & Six validation trajectories \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
+
+\subsection*{2.3. Observables and coefficient definition}
+
+For each recorded configuration, the lattice parameter was calculated as $a=L_x/n$, where $n$ is the number of conventional cells along the box edge. The three edges change together under isotropic cell control. Lattice parameters and volumes were averaged over the production segment of each trajectory before the independent repeats were summarized. Volume was read directly from the trajectory output rather than reconstructed by cubing an averaged lattice parameter. These observables describe the changing dimensions of the periodic crystal, not a directly imaged interatomic bond length.
+
+
+The normalized linear expansion and engineering interval-average coefficient were defined using 300 K as the reference:
+
+
+\begin{equation}
+\begin{aligned}
+\epsilon(T)&=\frac{\bar a(T)-\bar a(300)}{\bar a(300)},\\
+\bar\alpha_{300-800}&=\frac{\epsilon(800)}{800-300}.
+\end{aligned}\tag{2}
+\end{equation}
+
+The normalization was applied separately to each repeat using its own 300 K value. The three endpoint coefficients were subsequently averaged. This sequence keeps the reference length and high-temperature length paired within a repeat and supplies three independent coefficient estimates for the final uncertainty calculation. The same grouping was retained when constructing the normalized curves and residuals.
+
+
+\textbf{The coefficient in Eq. (2) is an endpoint secant quantity}, expressed per kelvin. It is distinct from the instantaneous coefficient $\alpha(T)=a(T)^{-1}\mathrm{d}a/\mathrm{d}T$. In particular, a nearly straight lattice-parameter curve over a finite interval does not establish a temperature-independent instantaneous coefficient. The intermediate temperatures constrain the observed trend, while the principal reported coefficient uses only the 300 and 800 K endpoints. Higher-order fitting and numerical differentiation were avoided because six temperature points do not justify a detailed reconstruction of the instantaneous temperature dependence.
+
+
+\subsection*{2.4. Experimental reference and statistical analysis}
+
+The experimental benchmark was the revised NIST SRM 736 certificate dated 7 October 1990 \cite{r9}; Hahn reports the underlying copper thermal-expansion measurements \cite{r10}. The certificate tabulates length changes relative to 293 K. A direct comparison with Eq. (2) would therefore mix reference lengths. The tabulated fractional changes $e_{293}(T)$ were converted according to
+
+
+\begin{equation}
+\epsilon_{\mathrm{ref}}(T)=\frac{1+e_{293}(T)}{1+e_{293}(300)}-1.\tag{3}
+\end{equation}
+
+Using the revised values of 117 ppm at 300 K and 9,420 ppm at 800 K gives an interval-average reference coefficient of 18.6038 × 10\textsuperscript{-6} K\textsuperscript{-1}. The factor $10^{-6}$ was applied when converting the tabulated ppm values into fractional length changes. The revision, temperature interval, and reference length were kept consistent throughout. A room-temperature instantaneous coefficient would answer a different question and was not substituted for this interval benchmark.
+
+
+Successive molecular-dynamics samples are correlated. Accordingly, the 5,000 recorded production points were not treated as 5,000 independent experiments. Following established approaches to correlated-data uncertainty and sampling assessment \cite{r11,r12}, the trajectories were divided into blocks of 1, 2, 5, 10, 20, and 50 ps. Twenty-picosecond blocks were used for single-trajectory standard-error diagnostics, and the first and second halves of each production segment were compared. Changes with block length were inspected because recording more frequently does not necessarily add proportionate independent information.
+
+
+For the final coefficient, the uncertainty was calculated from the three independently initialized coefficient estimates. The mean was reported with a two-sided 95\% Student-$t$ confidence interval using two degrees of freedom. This interval assumes independent repeats and an adequate approximation for the distribution of their estimates. \textbf{It quantifies sampling variability, not total predictive uncertainty.} Neither experimental-reference uncertainty nor systematic model error was included. The small number of repeats also limits how precisely the sampling distribution itself can be characterized.
+
+
+The endpoint checks increased the atom count to 6,912, reduced the timestep to 0.5 fs, or extended both equilibration and production to 1 ns. Each modified endpoint pair was compared with production repeat r1, using the previously specified practical target of an absolute coefficient change below 2\%. This target screens numerical sensitivity under the chosen changes; it is not a universal convergence criterion or a significance test. The calculations did not sample all combinations of these parameters or repeat the same scan at intermediate temperatures.
+
+
+\section*{3. Results and Discussion}
+
+\subsection*{3.1. Temperature dependence of lattice parameter and volume}
+
+The mean lattice parameter increased at every sampled temperature, demonstrating positive thermal expansion within the investigated interval (Figure 2). It rose from 3.63193 Å at 300 K to 3.66441 Å at 800 K, a difference of approximately 0.03248 Å. The associated normalized linear expansion was 0.8944\%. This change was much larger than the statistical variability across the three repeats, so the temperature-driven increase was resolved by the present sampling. Lines connecting points indicate the sequence of simulated temperatures and do not introduce an additional fitted model.
+
+
+The additional panels distinguish the mean response from the underlying fluctuations. In Figure 2b, each production trajectory is centered on its own mean lattice parameter before the three repeat distributions are combined descriptively at each temperature. The distribution widths therefore describe fluctuations rather than the temperature-dependent shift in the mean. The samples remain correlated, and their count is not used as the number of independent repeats. Figure 2c complements this view with individually normalized volume changes, preserving the small differences between repeats without replacing them by a pooled trajectory.
+
+
+\begin{figure*}[!tp]
+\centering
+\includegraphics[width=\textwidth,height=.64\textheight,keepaspectratio]{../results/paper_figures/figure2_composite_v2.pdf}
+\caption{\textbf{Mean thermal expansion, lattice fluctuations, and repeat-resolved volume changes of periodic single-crystal copper.} (a) Mean lattice parameter from three independently initialized production trajectories at each temperature. Error bars are two-sided 95\% Student-t confidence intervals with two degrees of freedom and may be smaller than the markers. Open squares, diamonds, and triangles show repeats r1, r2, and r3, respectively; fixed horizontal offsets of −12, 0, and +12 K are used only for visibility, without changing their lattice-parameter values. Filled circles are plotted at the actual temperatures, and connecting lines are guides to the eye. (b) Half-violin densities and boxplots summarize production-sample fluctuations after subtracting each trajectory's own mean lattice parameter and pooling the three centered trajectories per temperature. Densities use Scott's bandwidth rule and are displayed only over the observed ranges. Violin widths are scaled to a common maximum and do not encode sample size. Boxes show the interquartile range and median; whiskers reach the most extreme observations within 1.5 interquartile ranges. Boxplot outlier symbols are omitted; the density display retains the full observed range. These correlated samples describe fluctuations, not independent replicate measurements or confidence intervals. (c) Directly averaged volumes normalized to each repeat's own 300 K volume, with values in percent. The 300 K zeros follow from normalization. Blue-to-green marker and distribution colors identify temperature in (a,b), whereas the continuous teal scale in (c) encodes volume change. All panels exclude the first 200 ps and use the subsequent 500 ps production segment.}\label{fig2}
+\end{figure*}
+
+The corresponding mean volume increased from approximately 47,908.4 to 49,205.5 Å\textsuperscript{3}. Normalizing volumes separately within each repeat gives a mean endpoint increase of 2.7074\%, as represented by the repeat-resolved matrix in Figure 2c. For a uniformly expanding cubic box, the exact relation between deterministic linear and volumetric strains is $(1+\epsilon)^3-1=3\epsilon+3\epsilon^2+\epsilon^3$. The leading small-strain term therefore explains why the observed volumetric expansion is close to three times the linear expansion. The higher-order terms remain finite, and averaging a fluctuating volume is not identical to cubing an averaged edge length. The agreement is consequently a useful geometric consistency check, without providing an independent validation against experiment.
+
+
+The result establishes the direction and magnitude of expansion predicted by this potential under the imposed conditions. It does not isolate a microscopic mechanism from the scalar curve alone. The potential includes a nonquadratic energy landscape, so an anharmonic finite-temperature response is consistent with the calculation. However, no mode-resolved vibrational analysis or decomposition of the expansion into separate microscopic contributions was performed. The supported observation is the equilibrium dimensional response of this model, rather than a direct measurement of a particular phonon mechanism.
+
+
+\subsection*{3.2. Comparison with a consistently normalized experimental benchmark}
+
+After conversion to a common 300 K reference, both the simulation and the NIST data showed increasing length with temperature, but the simulated expansion became progressively smaller than the reference (Figure 3). The two curves coincide at 300 K by definition. That coincidence contains no independent evidence that the absolute simulated lattice parameter is experimentally accurate at this temperature. The residual panel therefore carries essential information: it displays the difference between normalized responses rather than relying on the visual proximity of two increasing curves.
+
+
+\begin{figure*}[!tp]
+\centering
+\includegraphics[width=\textwidth,height=.64\textheight,keepaspectratio]{../results/paper_figures/figure3_reference_composite_v1.pdf}
+\caption{\textbf{Comparison of copper thermal expansion predicted by the Mishin EAM1 potential with the revised NIST SRM 736 reference.} (a) Linear expansion relative to 300 K, with MD means obtained from three independently initialized production trajectories per temperature. (b) Mean MD-minus-NIST residuals in ppm, with temperature increasing upward. (c) Engineering interval-average coefficients, calculated for each MD repeat as $\bar\alpha_r=[\bar a_r(800\,\mathrm{K})/\bar a_r(300\,\mathrm{K})-1]/(500\,\mathrm{K})$ and then averaged. Error bars in all panels are two-sided 95\% Student-t confidence intervals with two degrees of freedom and describe MD sampling variability only; reference uncertainty has not been propagated, and no reference interval is implied to be zero. MD strains are normalized separately to each repeat's own 300 K mean. NIST fractional length changes relative to 293 K are converted to the 300 K reference using the revised certificate dated 7 October 1990, p. 1. The coincident curves and zero residual with zero interval at 300 K follow from normalization, not independent validation. In (c), open squares, diamonds, and triangles represent r1, r2, and r3, with vertical category offsets of −0.14, 0, and +0.14 for visibility only; coefficient values are not shifted. Temperature colors are consistent between (a) and (b). Connecting lines are guides to the eye, and some intervals may be smaller than the markers. All MD averages exclude 200 ps of equilibration and use the subsequent 500 ps production segment.}\label{fig3}
+\end{figure*}
+
+At 800 K, the normalized length-change residual was approximately −358 ppm. Dividing this endpoint residual by the 500 K interval gives a coefficient difference of approximately −0.716 × 10\textsuperscript{-6} K\textsuperscript{-1}. This conversion links the curve-level comparison with the coefficient-level comparison in Table 2. It also distinguishes a relative error in the expansion coefficient from a relative error in the absolute lattice parameter: the −3.85\% value below describes the former, not a 3.85\% error in the crystal edge length.
+
+
+\begin{table*}[!tp]
+\caption{\textbf{Engineering interval-average linear expansion coefficients from 300 to 800 K.} Coefficients and interval half-widths are expressed in 10\textsuperscript{-6} K\textsuperscript{-1}. The MD estimate is the mean of three independently calculated coefficients. Relative deviation uses the NIST coefficient as the denominator. No combined reference uncertainty was propagated; its omission does not imply zero uncertainty.}\label{tab2}
+\centering
+{\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{\dimexpr 0.320\textwidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.220\textwidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.220\textwidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.240\textwidth-2\tabcolsep\relax}}
+\toprule
+\textbf{Source} & \textbf{Average coefficient} & \textbf{95\% CI half-width} & \textbf{Deviation from NIST} \\
+\midrule
+MD, three repeats & 17.888 & 0.015 & -3.85\% \\
+NIST SRM 736 & 18.6038 & Not propagated & Reference \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
+
+The individual MD coefficients were approximately 17.885, 17.895, and 17.885 × 10\textsuperscript{-6} K\textsuperscript{-1}. Their mean, \textbf{17.888 × 10\textsuperscript{-6} K\textsuperscript{-1}}, was lower than the consistently defined reference by \textbf{3.85\%}. The 95\% statistical interval half-width of 0.015 × 10\textsuperscript{-6} K\textsuperscript{-1} was much smaller than the coefficient discrepancy. Variation caused by the independently generated initial velocities is therefore insufficient to explain the difference in this dataset. Increasing the number of repeats might refine the uncertainty estimate, but a narrower statistical interval would not by itself move the mean toward the reference.
+
+
+The comparison also involves different material representations. The certificate characterizes actual high-purity copper specimens, whereas the calculation starts from a perfect periodic crystal. The present normalization compares changes relative to a common temperature and deliberately removes a constant reference-length offset. This is appropriate for evaluating expansion, but it leaves the accuracy of the absolute lattice parameter unresolved. A separate absolute-length benchmark and a fuller account of the experimental specimen would be needed to assess those additional questions.
+
+
+\subsection*{3.3. Sensitivity to simulation settings}
+
+The numerical variations produced small changes in the endpoint coefficient relative to r1 (Figure 4). Increasing the atom count from 4,000 to 6,912 changed it by +0.0680\%; halving the timestep changed it by −0.0087\%; and extending both equilibration and sampling changed it by +0.0280\%. All were below the prespecified 2\% practical target and below 0.1\% in magnitude. The timestep result, in particular, did not reveal a substantial integration-step sensitivity at the precision relevant to the experimental comparison.
+
+
+\begin{figure*}[!tp]
+\centering
+\includegraphics[width=\textwidth,height=.64\textheight,keepaspectratio]{../results/paper_figures/figure4_settings_sensitivity_v1.pdf}
+\caption{\textbf{Sensitivity to simulation settings.} (a) Baseline and modified settings, with colored cells identifying the parameters changed from the baseline. Unchanged values use neutral backgrounds; colors identify conditions and are not a numerical scale across unlike units. (b) Relative changes in the engineering 300–800 K average linear expansion coefficient, calculated as $100(\bar\alpha_{\mathrm{condition}}/\bar\alpha_{\mathrm{baseline},r1}-1)$. Every comparison uses production repeat r1 at 300 and 800 K as the baseline, rather than the three-repeat mean. Each modified condition contains one trajectory at each endpoint, and no independent-repeat uncertainty intervals are available for these checks. The horizontal axis is expanded to resolve small changes; the prespecified ±2\% practical sensitivity target lies outside the displayed range. Passing these limited checks supports robustness under the tested changes, not universal convergence or an exact bound on numerical error.}\label{fig4}
+\end{figure*}
+
+The three checks probe different possible numerical limitations. A larger box tests one change in the available periodic length scales; a smaller timestep tests integration resolution; and a longer trajectory tests the selected equilibration and averaging durations. Their small observed effects support the robustness of the current estimate within these specific comparisons. Because each modified condition has only one endpoint pair, the measured shifts also contain sampling variability. They should not be interpreted as exact corrections that can be added to the final coefficient, nor as rigorous upper bounds on all finite-size and integration errors.
+
+
+\subsection*{3.4. Recorded trajectory diagnostics}
+
+The production averages provided no obvious indication of a persistent mismatch with the imposed temperature targets. Across all 24 trajectories, the largest absolute difference between the mean and target temperature was 0.249 K, and mean pressures ranged from −7.57 to 5.85 bar. Endpoint traces of temperature, pressure, potential energy, and volume fluctuated without sustained one-direction growth over the displayed sampling windows (Figure 5). These diagnostics are consistent with the intended stationary sampling, although matching a mean target alone cannot establish equilibration of every structural degree of freedom.
+
+
+The first-half versus second-half lattice-parameter diagnostic reached a maximum standardized difference of 2.246 when normalized by the corresponding block-based uncertainty estimate. This did not trigger the workflow's strong-drift review condition. Nevertheless, a finite trajectory can contain slow processes that are not resolved by a two-window comparison. The diagnostic was therefore used together with time-series inspection and the longer endpoint calculations, rather than as a binary proof of complete equilibrium.
+
+
+Figure 5a displays the recorded r1 volume trajectories at all six target temperatures, using the same 300 K production-volume denominator. Gray and colored segments distinguish equilibration from production. The target-temperature axis identifies independently simulated conditions; the graphic does not interpolate a continuous temperature-dependent surface. The endpoint panels retain the full initial excursions and show temperature and potential-energy deviations under explicitly stated reference conventions. Their zero-centered production means are partly definitional and must not be treated as an independent equilibration test.
+
+
+\begin{figure*}[!tp]
+\centering
+\includegraphics[width=\textwidth,height=.64\textheight,keepaspectratio]{../results/paper_figures/figure5_trajectory_diagnostics_v1.pdf}
+\caption{\textbf{Recorded trajectory diagnostics for periodic single-crystal copper.} (a) Separate 3D volume trajectories for production repeat r1 at six target temperatures. Volume changes are normalized to the single common denominator $\bar V_{300,r1}=47\,908.5892\,\text{Å}^3$, averaged over 200 < time ≤ 700 ps. Target temperature labels separate simulation conditions rather than instantaneous temperatures. Gray traces indicate the first 200 ps; colored traces indicate the following production segment, with the recorded 200 ps boundary point retained for visual line continuity only. The faint plane marks 200 ps and is not an interpolated data surface. (b–d) Recorded endpoint r1 trajectories at 300 and 800 K: actual temperature minus target temperature, instantaneous pressure (1 bar = 10\textsuperscript{-4} GPa), and potential energy per atom minus that trajectory's own production mean. Light traces show every recorded point, including step 0; darker solid (300 K) and dashed (800 K) traces show trailing 50-record means (5 ps at the 0.1 ps recording interval), reset at the production boundary with shorter startup windows. These means are display aids only. No temporal decimation, detrending, variance rescaling, or temperature interpolation is used. All curves represent individual r1 trajectories, not averages over three repeats. Energy centering sets the production mean to zero by construction. The plots provide diagnostic evidence but do not alone prove complete equilibration or independent sampling; fluctuations are not confidence intervals.}\label{fig5}
+\end{figure*}
+
+\subsection*{3.5. Sensitivity of statistical uncertainty to block duration}
+
+Block-length analysis gives a complementary view of sampling uncertainty (Figure 6). All 24 trajectories were reanalyzed using complete, nonoverlapping blocks of 1–50 ps. The heatmap normalizes each trajectory to its own 20 ps standard error, so the neutral 20 ps column follows from the definition. Its colors summarize relative changes rather than statistical significance or a pass/fail classification.
+
+
+Increasing the block duration from 20 to 50 ps gave a median standard-error ratio of 1.018, with individual ratios between 0.564 and 1.299. The endpoint curves show local increases and decreases rather than strict monotonic convergence. The paired plot includes all trajectories on equal axes, allowing departures from the 1:1 relation to be inspected without changing point positions. These are observed differences, not confidence bounds on the standard-error estimator.
+
+
+\begin{figure*}[!tp]
+\centering
+\includegraphics[width=\textwidth,height=.64\textheight,keepaspectratio]{../results/paper_figures/figure6_block_sensitivity_v1.pdf}
+\caption{\textbf{Sensitivity of lattice-parameter standard-error estimates to statistical block duration.} All 24 completed trajectories are analyzed separately: 18 production trajectories followed by six endpoint validation trajectories, with groups separated in (a). Each standard error is the sample standard deviation of nonoverlapping block means divided by the square root of the complete-block count. (a) Ratios to each trajectory's own 20 ps standard error, encoded by a shared symmetric $\log_2$ ratio color scale; colorbar labels show the corresponding ratios. The copper outline marks the 20 ps column, whose ratio of one follows from normalization. Lavender and teal indicate ratios below and above one, not pass/fail classifications. (b) Absolute standard errors for production repeat r1 at 300 and 800 K; circles and triangles identify the two temperatures, open rings highlight 20 and 50 ps, and connecting segments are guides to the eye on the logarithmic duration axis. (c) Paired 20 and 50 ps estimates for all trajectories, with equal axes and a 1:1 reference line. Colors identify temperature; filled circles and open diamonds identify production and validation trajectories. The annotated range is the observed range of ratios, not a confidence interval. Standard trajectories use 500 ps after 200 ps equilibration; long-duration checks use 1,000 ps after 1,000 ps equilibration. Longer blocks reduce the number of available block means and can increase variability in the estimated error. Limited sensitivity within these tested block durations does not establish complete independence, universal convergence, or the absence of slower correlations.}\label{fig6}
+\end{figure*}
+
+For the standard 500 ps production windows, 20 and 50 ps blocks yield 25 and 10 block means, respectively; the 1,000 ps validation windows yield 50 and 20. Longer blocks can reduce within-block dependence while leaving fewer observations for estimating the error. The resulting estimator variability helps explain why a downward change alone cannot establish convergence. The current diagnostics do not exclude correlations slower than the available production windows.
+
+
+\subsection*{3.6. Interpretation in relation to previous computational work}
+
+\textbf{The reference discrepancy exceeds the numerical effects measured here.} The −3.85\% coefficient deviation is substantially larger than the changes observed in the size, timestep, and duration checks. It is therefore not justified to attribute the discrepancy entirely to any of these tested choices, or to expect their specific tested adjustments to eliminate it. Conversely, three limited checks cannot exclude all numerical contributions. The defensible interpretation separates the measured small protocol sensitivity from the unresolved sources of the remaining difference.
+
+
+The original Mishin study established the potential's performance for structural stability and defects \cite{r5}. That evidence supports its use as a physically motivated copper model, but different observables test different aspects of the same energy landscape. A minimum-energy structure and a finite-temperature change in equilibrium volume need not have the same error. The present result therefore adds an observable-specific assessment rather than contradicting the original model evaluation. It also illustrates why reproducibility and predictive accuracy must be reported separately: a coefficient can be calculated consistently and still retain a systematic discrepancy relative to a chosen benchmark.
+
+
+The literature provides useful methodological comparisons without supplying a controlled ranking for this dataset. The first-principles study of Narasimhan and de Gironcoli examines thermal properties through quasiharmonic calculations and different exchange-correlation approximations \cite{r2}. PACE uses copper expansion as one component of potential validation \cite{r3}. Olsson et al. extend the problem to microstructure-dependent expansion and use electronic-structure information to investigate its origin \cite{r4}. The present work is narrower: it fixes one potential and one initial crystal type, then checks a reproducible classical-MD protocol. Since these publications differ in model, material state, and reported quantities, their results cannot be used to assign an accuracy advantage here without matching definitions and conditions.
+
+
+Several model limitations remain relevant to interpretation. Classical MD does not explicitly include nuclear quantum statistics or electronic thermal excitation, and the initial perfect periodic crystal is not identical to a real specimen. The simulation also lacks a systematic finite-temperature defect inventory, phonon calculation, and electronic-structure analysis. These omissions identify possible directions for further work, but their numerical contributions have not been calculated. Assigning the observed bias uniquely to one omitted effect, or to a particular anharmonic term in the potential, would exceed the available evidence.
+
+
+The next most informative extension would be a controlled comparison under an otherwise unchanged protocol. A second copper potential could test model dependence; a separate absolute lattice-parameter reference could test the baseline structure; and repeated endpoint validation could separate small parameter shifts from statistical fluctuations. These are distinct questions. Merely adding more points to the existing temperature curve would improve its resolution but would not, on its own, identify why the current model underpredicts the reference expansion.
+
+
+\section*{4. Conclusions}
+
+Periodic single-crystal copper described by the Mishin EAM1 potential exhibited positive thermal expansion between 300 and 800 K at a target pressure of 0 bar. The lattice parameter increased from 3.63193 to 3.66441 Å, corresponding to 0.8944\% linear expansion and 2.7074\% volumetric expansion. Three independently initialized endpoint pairs yielded an engineering interval-average coefficient of \textbf{17.888 ± 0.015 × 10\textsuperscript{-6} K\textsuperscript{-1}}, where the stated uncertainty is the half-width of a 95\% statistical confidence interval.
+
+
+After conversion of the revised NIST SRM 736 data to the same 300 K reference, the MD coefficient was \textbf{3.85\% lower} than the reference value of 18.6038 × 10\textsuperscript{-6} K\textsuperscript{-1}. The tested changes in atom count, timestep, and duration each altered the coefficient by less than 0.1\%. The experimental discrepancy is therefore larger than the numerical changes measured in this study, while its physical origin remains unresolved. These findings support the potential as a reproducible model of the expansion trend under the tested conditions, with the reported quantitative bias retained explicitly. Neither the narrow statistical interval nor the passed practical sensitivity target establishes an unbiased model or complete convergence over untested conditions.
+
+
+\section*{Data and Code Availability}
+
+Inputs, scalar trajectory data, metadata, and analysis scripts are available in the \href{https://github.com/Gytid8/copper-thermal-expansion}{project repository}. This Notebook reads and reanalyzes the completed dataset; executing it does not restart the long MD runs. Two interrupted timestep-validation trajectories were resumed from their equilibrated states and then sampled for a complete 500 ps production segment. Original records and the removal of an identical duplicated restart-boundary row are documented in the \href{https://github.com/Gytid8/copper-thermal-expansion/blob/main/docs/recovery_record.md}{recovery record}. Figure 1 is an AI-assisted schematic checked against the model settings; it is not a simulation snapshot. Figures 2–6 are calculated from recorded trajectories. The executable analysis and figure-generation scripts accompany the Notebook; the PDF reading edition omits executable cells. The authors must supply their actual names, affiliation, and contributions before submission.
+
+
+\FloatBarrier
+\begin{thebibliography}{99}
+\fontsize{8.5}{10.2}\selectfont
+\bibitem{r1} Alper, H. E.; Politzer, P. Molecular dynamics simulation of the temperature-dependent behavior of solid copper. \emph{Journal of Molecular Structure: THEOCHEM} \textbf{487}, 117–125 (1999). \href{https://doi.org/10.1016/S0166-1280(99)00147-5}{DOI: 10.1016/S0166-1280(99)00147-5}.
+
+\bibitem{r2} Narasimhan, S.; de Gironcoli, S. Ab initio calculation of the thermal properties of Cu: Performance of the LDA and GGA. \emph{Physical Review B} \textbf{65}, 064302 (2002). \href{https://doi.org/10.1103/PhysRevB.65.064302}{DOI: 10.1103/PhysRevB.65.064302}; \href{https://arxiv.org/abs/cond-mat/0109020}{author manuscript}.
+
+\bibitem{r3} Lysogorskiy, Y.; van der Oord, C.; Bochkarev, A.; et al. Performant implementation of the atomic cluster expansion (PACE) and application to copper and silicon. \emph{npj Computational Materials} \textbf{7}, 97 (2021). \href{https://doi.org/10.1038/s41524-021-00559-9}{DOI: 10.1038/s41524-021-00559-9}; \href{https://arxiv.org/abs/2103.00814}{author manuscript}.
+
+\bibitem{r4} Olsson, P. A. T.; Awala, I.; Holmberg-Kasa, J.; et al. Grain Size-Dependent Thermal Expansion of Nanocrystalline Metals. \emph{Materials} \textbf{16}, 5032 (2023). \href{https://doi.org/10.3390/ma16145032}{DOI: 10.3390/ma16145032}; \href{https://lucris.lub.lu.se/ws/portalfiles/portal/159582754/Olsson_2023c.pdf}{institutional full text}.
+
+\bibitem{r5} Mishin, Y.; Mehl, M. J.; Papaconstantopoulos, D. A.; Voter, A. F.; Kress, J. D. Structural stability and lattice defects in copper: Ab initio, tight-binding, and embedded-atom calculations. \emph{Physical Review B} \textbf{63}, 224106 (2001). \href{https://doi.org/10.1103/PhysRevB.63.224106}{DOI: 10.1103/PhysRevB.63.224106}.
+
+\bibitem{r6} NIST Interatomic Potentials Repository. \emph{2001–Mishin et al.–Cu-1}: EAM1 identification and LAMMPS potential-file conversion. \href{https://www.ctcms.nist.gov/potentials/entry/2001--Mishin-Y-Mehl-M-J-Papaconstantopoulos-D-A-et-al--Cu-1/}{Official entry}. Accessed 19 October 2026.
+
+\bibitem{r7} Thompson, A. P.; Aktulga, H. M.; Berger, R.; et al. LAMMPS—a flexible simulation tool for particle-based materials modeling at the atomic, meso, and continuum scales. \emph{Computer Physics Communications} \textbf{271}, 108171 (2022). \href{https://doi.org/10.1016/j.cpc.2021.108171}{DOI: 10.1016/j.cpc.2021.108171}; \href{https://www.lammps.org/about/citing/}{official software citation}.
+
+\bibitem{r8} LAMMPS Documentation. \emph{fix nvt / npt / nph commands}. \href{https://docs.lammps.org/fix_nh.html}{Official documentation}. Accessed 19 October 2026. Simulations used the 22 July 2025 release, update 4; online documentation can change with later releases.
+
+\bibitem{r9} NIST. \emph{Standard Reference Material 736: Copper—Thermal Expansion}. Certificate revised 7 October 1990, table on p. 1. \href{https://tsapps.nist.gov/srmext/certificates/archives/736.pdf}{Official archived certificate}.
+
+\bibitem{r10} Hahn, T. A. Thermal Expansion of Copper from 20 to 800 K—Standard Reference Material 736. \emph{Journal of Applied Physics} \textbf{41}, 5096–5101 (1970). \href{https://doi.org/10.1063/1.1658614}{DOI: 10.1063/1.1658614}. Numerical reference values in this study use the revised certificate \cite{r9}.
+
+\bibitem{r11} Flyvbjerg, H.; Petersen, H. G. Error estimates on averages of correlated data. \emph{The Journal of Chemical Physics} \textbf{91}, 461–466 (1989). \href{https://doi.org/10.1063/1.457480}{DOI: 10.1063/1.457480}.
+
+\bibitem{r12} Grossfield, A.; Patrone, P. N.; Roe, D. R.; Schultz, A. J.; Siderius, D. W.; Zuckerman, D. M. Best Practices for Quantification of Uncertainty and Sampling Quality in Molecular Simulations [Article v1.0]. \emph{Living Journal of Computational Molecular Science} \textbf{1}(1), 5067 (2019). \href{https://doi.org/10.33011/livecoms.1.1.5067}{DOI: 10.33011/livecoms.1.1.5067}; \href{https://livecomsjournal.org/index.php/livecoms/article/download/v1i1e5067/913/2595}{journal full text}.
+\end{thebibliography}
+\end{document}
